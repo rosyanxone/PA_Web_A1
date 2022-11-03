@@ -3,19 +3,10 @@
     require 'koneksi.php';
 
     if(!isset($_SESSION['login'])){
-        header("Location: login.php");
+        header("Location: /user/login.php");
         exit;
     }
         $level = $_SESSION['level'];
-        // } else {
-        //     print_r($_SESSION);
-        //     $level = '';
-        //     if(count($_SESSION) > 1) {
-        //         $level = $_SESSION['level'];
-        //     } else {
-        //         $level = 'user';
-        //     }
-        // }
     
 ?>
 
@@ -42,7 +33,7 @@
                         <li><a class="mode" href="#aboutus">About Us</a></li>
                         <li><a class="mode" href="tarif/bacatarif.php">Tarif</a></li>
                         <?php if($level == 'admin') { ?>
-                                <li><a class="mode" href="pelanggan/bacapelanggan.php">Pelanggan</a></li>
+                                <li><a class="mode" href="user/bacauser.php">Pelanggan</a></li>
                                 <li><a class="mode" href="pembelian/bacapembelian.php">Pembelian</a></li>
                         <?php }?>
                         <!-- <li><a class="mode" href="pembayaran/bacapembayaran.php">Pembayaran</a></li> -->
