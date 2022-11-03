@@ -1,5 +1,5 @@
 <?php
-    require 'koneksi.php';
+    require '../koneksi.php';
 
     if(isset($_POST['register'])) {
         $username = $_POST['username'];
@@ -51,7 +51,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrasi</title>
-    <link rel="stylesheet" type="text/css" href="styles/login.css">
+    <link rel="stylesheet" type="text/css" href="../styles/login.css">
 
     <style>
         .inputan {
@@ -64,7 +64,7 @@
         <h3 class="tulisan_login">LOGIN</h3>
         <form action="" method="post">
         <center>
-            <img src="img/qw.png">
+            <img src="../img/qw.png">
             </center>
             <input type="text" name="nama" id="nama" class="inputan" placeholder="Nama" required>
             <input type="number" name="telepon" id="telepon" class="inputan" placeholder="Telepon" required>
