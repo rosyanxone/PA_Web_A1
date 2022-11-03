@@ -3,7 +3,7 @@
     require 'koneksi.php';
 
     if(!isset($_SESSION['login'])){
-        header("Location: /user/login.php");
+        header("Location: user/login.php");
         exit;
     }
         $level = $_SESSION['level'];
