@@ -1,121 +1,191 @@
-<?php 
+<?php
     session_start();
-    require 'koneksi.php';
 
-    if(!isset($_SESSION['login'])){
-        header("Location: user/login.php");
+    if(!isset($_SESSION['login'])) {
+        print_r($_SESSION);
+        header('location: php/auth/login.php');
         exit;
     }
-    $level = $_SESSION['level'];
-    
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>PT Listrik Biru</title>
-	<link rel="stylesheet" type="text/css" href="styles/styles.css">
-	<link rel="SHORTCUT ICON" href="img/logo/colokan.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title & Web Icon -->
+    <title>Pixel: Rental Ps</title>
+    <link rel="shortcut icon" href="img/background/logo-p.png">
+    
+    <!-- Link Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="//db.onlinewebfonts.com/c/213e56f9ea368890b9d2da0577e49dab?family=Zona+Pro" rel="stylesheet" type="text/css"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style-mobile.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="nav mode">
-                <div class="logo">
+    <!-- HEADER -->
+    <header class="main" id="home">
+        <!-- navbar -->
+        <nav class="mode-bg">
+            <div class="logo">
+                <a href="index.php" class="mode-text">
                     <img src="img/qw.png" alt="">
-                    <p>
-                        <b>Listrik Biru</b>
-                    </p>
-                </div>
-                <div class="menu">
-                    <ul>
-                        <li><a class="mode" href="logout.php">Logout</a></li>
-                        <li><a class="mode" href="contact-us.html">Contact Us</a></li>
-                        <li><a class="mode" href="#aboutus">About Us</a></li>
-                        <li><a class="mode" href="tarif/bacatarif.php">Tarif</a></li>
-                        <?php if($level == 'admin') { ?>
-                                <li><a class="mode" href="user/bacauser.php">Pelanggan</a></li>
-                                <li><a class="mode" href="pembelian/bacapembelian.php">Pembelian</a></li>
-                        <?php }?>
-                        <!-- <li><a class="mode" href="pembayaran/bacapembayaran.php">Pembayaran</a></li> -->
-                        <li><button class="mode" onclick="result()">Night Mode</button></li>
-                    </ul>
-                </div>
-                
+                    <p>Listrik Biru</p>
+                </a>
+            </div>
+
+            <ul>
+                <li><a class="mode-text" href="index.php">Pembelian</a></li>
+                <li><a class="mode-text" href="php/rent.php">Pelanggan</a></li>
+                <li><a class="mode-text" href="php/game.php">Tarif</a></li>
+            </ul>
+            <div class="logout-btn">
+                <a href="php/auth/logout.php">Logout</a>
+            </div>
+            <div class="dark-mode-toggle">
+                <input type="checkbox" class="checkbox" id="chk"/>
+                <label class="label" for="chk">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                    <div class="ball"></div>
+                </label>
+            </div>
+
+            <div class="menu-toggle">
+                <input type="checkbox" id="menTog"/>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </nav>
-    </header>
+        <!-- end navbar -->
 
-    <div class="container-1">
-        <div class="banner">
-            <div class="caption" id="login">
-                <h1>Listrik Biru</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, quibusdam nulla at fugiat magni velit harum dolore odit distinctio obcaecati?</p>
-    
-                <b><p class="caption-join">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum, perferendis!</p></b>
-    
-                <button id="btn-info">LOGIN NOW FOR $1</button>
-                <p id="info" style="display: none">Lorem ipsum dolor sit amet consectetur adipisicing elit. At voluptatibus eius, praesentium quis suscipit illo et beatae illum repellendus soluta.</p>
-    
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non aut eveniet earum vel laudantium provident!.</p>
+        <div class="header-container">
+            <div class="header-item-left">
+                <h1>LISTRIK BIRU</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque possimus suscipit reiciendis, dolore, ratione quos ipsa iure aspernatur cum debitis inventore tenetur saepe. Doloremque, et deserunt voluptatum sapiente nesciunt illum repudiandae? Quod aspernatur nihil eius assumenda vitae tempore repellat autem pariatur! Voluptatum fugit nesciunt reprehenderit eum voluptatibus aliquam ipsa sed.</p>
+                <a href="php/rent.php">
+                    <button class="rent-btn">Pembelian</button>
+                </a>
+                <a href="php/game.php">
+                    <button class="play-btn">Tarif</button>
+                </a>
+                <!-- <h4>Available Service :</h4>
+                <img src="img/service/services.png" alt=""> -->
+            </div>
+            <div class="header-item-right">
+                <!-- <img src="img/service/ps5-sticks.webp" class="img-gif" alt=""> -->
             </div>
         </div>
-    </div>
+    </header>
+    <!-- END HEADER -->
 
+
+    <!-- MAIN CONTENT -->
+    <section>
+        <div class="about-container mode-bg mode-text" id="about">
+            <div class="about-title">
+                <h2>ABOUT US</h2>
+            </div>
+            <div class="about-content">
+                <p class="about-item-left"><b>Pixel</b> is a privately held Samarinda online video game rental subscription service that specializes in providing games for Sony and Microsoft systems starting from the sixth generation onwards. The business model of <b>Pixel</b> is similar to the DVD-by-mail subscription service Netflix and Blockbuster online. <b>Pixel</b> sends games to subscribers for a monthly fee.</p>
+                <p class="about-item-right">Over 8,000 titles are available. In May 2018, Electronic Arts announced that they acquired cloud gaming technology assets and personnel from <b>Pixel</b> (including its Chicago outpost). <b>Pixel</b> is currently owned by the same ownership group as Alliance Entertainment and is operated as a stand-alone company.</p>
+            </div>
+        </div>
+
+        <div class="partners-container mundur-dikit">
+            <h3>Our Partners</h3>
+            <div class="content-img">
+                <img src="img/partners/ovo.png" alt="">
+                <img src="img/partners/dana.png" alt="">
+                <img src="img/partners/gopay.png" alt="">
+            </div>
+        </div>
+
+        <div class="service-container">
+            <h3>Our Services</h3>
+            <div class="service-cards">
+                <div class="card-panel mode-bg mode-text">
+                    <img src="img/service/ps-logo.png" class="mode-img" alt="">
+                    <h4>Playstation</h4>
+                    <p>PlayStation is a brand produced by Sony Interactive Entertainment. The first PlayStation console was released in Japan in December 1994, and released worldwide the following year.</p>
+                </div>
+                <div class="card-panel mode-bg mode-text">
+                    <img src="img/service/xbox-logo.png" class="mode-img" alt="">
+                    <h4>Xbox</h4>
+                    <p>Xbox is a video gaming brand created and owned by Microsoft. The brand was first introduced in the United States in November 2001, with the launch of the original Xbox console.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END MAIN CONTENT -->
+
+
+    <!-- FOOTER -->
     <footer class="footer-distributed mode">
 
-        <div class="footer-left">
+<div class="footer-left">
 
-            <h3>Listrik <span>Biru</span></h3>
+    <h3>Listrik <span>Biru</span></h3>
 
-            <p class="footer-links">
-                <a href="#" class="link-1">Home</a>
-                
-                <a href="#">Blog</a>
-            
-                <a href="#">Pricing</a>
-            
-                <a href="#">About</a>
-                
-                <a href="#">Faq</a>
-                
-                <a href="#">Contact</a>
-            </p>
+    <p class="footer-links">
+        <a href="#" class="link-1">Home</a>
+        
+        <a href="#">Blog</a>
+    
+        <a href="#">Pricing</a>
+    
+        <a href="#">About</a>
+        
+        <a href="#">Faq</a>
+        
+        <a href="#">Contact</a>
+    </p>
 
-            <p class="footer-company-name">PT Listrik Biru Abadi © 2022</p>
-        </div>
+    <p class="footer-company-name">PT Listrik Biru Abadi © 2022</p>
+</div>
 
-        <div class="footer-center">
+<div class="footer-center">
 
-            <div>
-                <i class="fa fa-map-marker"></i>
-                <p><span>777 Kec.Wales</span> Gunung Camlat, Britania Raya</p>
-            </div>
+    <div>
+        <i class="fa fa-map-marker"></i>
+        <p><span>777 Kec.Wales</span> Gunung Camlat, Britania Raya</p>
+    </div>
 
-            <div>
-                <i class="fa fa-phone"></i>
-                <p>+62 8 2252 940003</p>
-            </div>
+    <div>
+        <i class="fa fa-phone"></i>
+        <p>+62 8 2252 940003</p>
+    </div>
 
-            <div>
-                <i class="fa fa-envelope"></i>
-                <p><a href="mailto:support@company.com">gempar@listrikbiru.com</a></p>
-            </div>
+    <div>
+        <i class="fa fa-envelope"></i>
+        <p><a href="mailto:support@company.com">gempar@listrikbiru.com</a></p>
+    </div>
 
-        </div>
+</div>
 
-        <div class="footer-right">
+<div class="footer-right">
 
-            <p class="footer-company-about">
-                <span>About the company</span>
-                Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
-            </p>
+    <p class="footer-company-about">
+        <span>About the company</span>
+        Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+    </p>
 
-        </div>
+</div>
 
-    </footer>
+</footer>
+    <!-- END FOOTER -->
 
-    <script src="js/main.js"></script>
-    <script src="js/addEvenListener.js"></script>
+    <!-- javascript -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="js/dark-mode.js"></script>
+    <script src="js/navbar-mobile.js"></script>
     <script src="https://kit.fontawesome.com/a374d5ed26.js" crossorigin="anonymous"></script>
 </body>
 </html>
