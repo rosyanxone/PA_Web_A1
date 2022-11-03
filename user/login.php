@@ -1,9 +1,9 @@
 <?php
     session_start();
-    require 'koneksi.php';
+    require '../koneksi.php';
 
     if (isset($_SESSION['login'])) {
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit;
     }
 
@@ -19,7 +19,7 @@
             if(password_verify($password, $row['password'])) {
                 $_SESSION['login'] = true;
                 $_SESSION['level'] = $row['level'];
-                header('location: index.php');
+                header('location: ../index.php');
                 exit;
             } else {
                 echo '<script>
@@ -44,7 +44,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="styles/login.css">
+    <link rel="stylesheet" type="text/css" href="../styles/login.css">
 
     <style>
         .inputan {
@@ -57,7 +57,7 @@
         <h3 class="tulisan_login">LOGIN</h3>
         <form action="" method="post">
         <center>
-            <img src="img/qw.png">
+            <img src="../img/qw.png">
             </center>
             <input type="text" name="username" id="username" class="inputan" placeholder="Username" required>
         
