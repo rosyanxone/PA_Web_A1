@@ -6,16 +6,7 @@
         header("Location: login.php");
         exit;
     }
-        $level = $_SESSION['level'];
-        // } else {
-        //     print_r($_SESSION);
-        //     $level = '';
-        //     if(count($_SESSION) > 1) {
-        //         $level = $_SESSION['level'];
-        //     } else {
-        //         $level = 'user';
-        //     }
-        // }
+    $level = $_SESSION['level'];
     
 ?>
 
@@ -26,7 +17,7 @@
 	<link rel="SHORTCUT ICON" href="img/logo/colokan.png">
 </head>
 <body>
-    <header style="margin-top: 200px;">
+    <header>
         <nav>
             <div class="nav mode">
                 <div class="logo">
