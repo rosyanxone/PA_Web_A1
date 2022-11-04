@@ -3,7 +3,7 @@
 
     if(!isset($_SESSION['login'])) {
         print_r($_SESSION);
-        header('location: php/auth/login.php');
+        header('location: user/login.php');
         exit;
     }
 ?>
@@ -41,9 +41,9 @@
             </div>
 
             <ul>
-                <li><a class="mode-text" href="index.php">Pembelian</a></li>
-                <li><a class="mode-text" href="php/rent.php">Pelanggan</a></li>
-                <li><a class="mode-text" href="php/game.php">Tarif</a></li>
+                <li><a class="mode-text" href="#">Pembelian</a></li>
+                <li><a class="mode-text" href="user/bacauser.php">Pelanggan</a></li>
+                <li><a class="mode-text" href="tarif/bacatarif.php">Tarif</a></li>
             </ul>
             <div class="logout-btn">
                 <a href="php/auth/logout.php">Logout</a>
