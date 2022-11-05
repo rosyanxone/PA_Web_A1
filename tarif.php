@@ -61,14 +61,20 @@
 	
 
     
-
+    
 	<table>
-	<?php 
-   		require('php/connection.php');
-		$read = mysqli_query($conn, 'SELECT * FROM tarif');
+        <?php
+            require('php/connection.php');
+            require('php/randomstr.php');
+            $randstr = RandomString(2);
+            $randstr2 = RandomString(1);
+            $randstr3 = RandomString(16, $num);
+            // echo $randstr3;
+            // echo 'TR/'.$randstr.'-F'.$randstr2;
+            $read = mysqli_query($conn, 'SELECT * FROM tarif');
 
-		if(mysqli_num_rows($read) > 0){
-			while($row = mysqli_fetch_array($read)){
+            if(mysqli_num_rows($read) > 0){
+                while($row = mysqli_fetch_array($read)){
 		?>
 			<tr class="games-content">
                 <td><?php echo "$row[id]"; ?></td>

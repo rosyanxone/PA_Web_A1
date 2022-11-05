@@ -5,7 +5,7 @@
         require('../php/randomstr.php');
 
         $randstring = RandomString();
-        $id = 'user'.$randstring;
+        $id = 'user-'.$randstring;
         $nama = $_POST['nama'];
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -56,84 +56,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Title & Web Icon -->
-    <!-- <title>Pixel: Rental Ps</title> -->
-    <link rel="shortcut icon" href="../../img/background/logo-p.png">
+    <title>Listrik Biru - Register</title>
+    <link rel="shortcut icon" href="../img/logo/logo-listrik.png">
     
     <!-- Link Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link href="//db.onlinewebfonts.com/c/213e56f9ea368890b9d2da0577e49dab?family=Zona+Pro" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../stylesheet/style.css">
+    <link rel="stylesheet" href="../stylesheet/Daftar.css">
     <link rel="stylesheet" href="../stylesheet/style-mobile.css">
 </head>
 <body>
-    <section id="register">
-        <div class="regis-container">
-            <div class="card-body-register">
-                <div class="card-regis-img">
-                    <img src="../img/background/consoles-bg-2.jpg" alt="login form"/>
-                </div>
-                <div class="card-content-regis">
-                    <div class="content-regis">
-                        <form action="" method="POST">
-                            <div class="login-title span">
-                                <span class="">SignUp</span>
-                            </div>
-                            <div class="box-register">
-                                <div class="input-wrapper">
-                                    <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama" required>
-                                    <label for="nama" class="control-label">Nama</label>
-                                </div>
-                            </div>
+    <div class="mainDaftar">
+        <p class="daftar" align="center">Daftar</p>
+        <form class="formDaftar">
+            <input  class="namaDaftar"     type="text"     align="center"   name="nama"     placeholder="Nama">
+            <input  class="userNameDaftar" type="text"     align="center"   name="username"     placeholder="Username">
+            <input  class="passDaftar"     type="password" align="center"   name="password"     placeholder="Password">
+            <input  class="passDaftar"     type="password" align="center"   name="confirm-password"     placeholder="Konfirmasi Password">
 
-                            <div class="box-register">
-                                <div class="input-wrapper">
-                                    <input type="text" name="telepon" id="telepon" class="form-control" placeholder="Telepon" required>
-                                    <label for="telepon" class="control-label">Telepon</label>
-                                </div>
-                            </div>
-
-                            <div class="box-register">
-                                <div class="input-wrapper">
-                                    <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Alamat" required>
-                                    <label for="alamat" class="control-label">Alamat</label>
-                                </div>
-                            </div>
-
-                            <div class="box-register">
-                                <div class="input-wrapper">
-                                    <input type="text" name="username" id="username" class="form-control" placeholder="Username" required>
-                                    <label for="username" class="control-label">Username</label>
-                                </div>
-                            </div>
-                            
-                            <div class="box-register">
-                                <div class="input-wrapper">
-                                    <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
-                                    <label for="password" class="control-label">Password</label>
-                                </div>
-                            </div>
-                            
-                            <div class="box-register">
-                                <div class="input-wrapper">
-                                    <input type="password" name="confirm-password" id="confirm-password" class="form-control" placeholder="Konfirmasi Password" required>
-                                    <label for="confirm-password" class="control-label">Konfirmasi Password</label>
-                                </div>
-                            </div>
-                            
-                            <div class="box-register">
-                                <button name="register" type="submit" class="btn-login">Register</button>
-                            </div>
-                            <p class="text-login regis">Already have an account?
-                                <a href="login.php" class="regis">Login here</a>
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            <button align="center">Daftar</button>
+            <p      class="loginDaftar" align="center"><a href="login.php">Login?</p>
+        </form>
+    </div>
 </body>
 </html>

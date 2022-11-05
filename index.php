@@ -41,11 +41,16 @@
             </div>
 
             <ul>
-                <li><a class="mode-text" href="index.php">Pembelian</a></li>
-                <li><a class="mode-text" href="pelanggan.php">Pelanggan</a></li>
                 <li><a class="mode-text" href="tarif.php">Tarif</a></li>
+                <?php if($_SESSION['akun']['level'] == 'admin') { ?>
+                    <li><a class="mode-text" href="#">Transaksi</a></li>
+                    <li><a class="mode-text" href="pelanggan.php">Pelanggan</a></li>
+                <?php } if($_SESSION['akun']['level'] == 'user') { ?>
+                    <li><a class="mode-text" href="user/profil.php">Profil</a></li>
+                    <!-- -1 -->
+                <?php } ?>
                 <div class="logout-btn">
-                    <a href="php/auth/logout.php">Logout</a>
+                    <a href="user/logout.php">Logout</a>
                 </div>
             </ul>
             <div class="dark-mode-toggle">
@@ -71,16 +76,13 @@
                 <h1>LISTRIK BIRU</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque possimus suscipit reiciendis, dolore, ratione quos ipsa iure aspernatur cum debitis inventore tenetur saepe. Doloremque, et deserunt voluptatum sapiente nesciunt illum repudiandae? Quod aspernatur nihil eius assumenda vitae tempore repellat autem pariatur! Voluptatum fugit nesciunt reprehenderit eum voluptatibus aliquam ipsa sed.</p>
                 <a href="php/rent.php">
-                    <button class="rent-btn">Pembelian</button>
+                    <button class="rent-btn">Pesan!</button>
                 </a>
                 <a href="php/game.php">
                     <button class="play-btn">Tarif</button>
                 </a>
-                <!-- <h4>Available Service :</h4>
-                <img src="img/service/services.png" alt=""> -->
             </div>
             <div class="header-item-right">
-                <!-- <img src="img/service/ps5-sticks.webp" class="img-gif" alt=""> -->
             </div>
         </div>
     </header>
@@ -102,8 +104,8 @@
         <div class="partners-container mundur-dikit">
             <h3>Our Partners</h3>
             <div class="content-img">
-                <img src="img/partners/ovo.png" alt="">
                 <img src="img/partners/dana.png" alt="">
+                <img src="img/partners/ovo.png" alt="">
                 <img src="img/partners/gopay.png" alt="">
             </div>
         </div>

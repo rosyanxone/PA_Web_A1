@@ -5,6 +5,10 @@
     if(!isset($_SESSION['login'])){
         header("Location: login.php");
         exit;
+    } else {
+        $id_user = $_SESSION['akun']['id'];
+        $sql = mysqli_query($conn, "SELECT * FROM user WHERE id = '$id_user'");
+        $data = mysqli_fetch_array($sql);
     }
 ?>
 
@@ -34,15 +38,15 @@
         <!-- navbar -->
         <nav class="mode-bg">
             <div class="logo">
-                <a href="index.php" class="mode-text">
+                <a href="../index.php" class="mode-text">
                     <img src="../img/logo/logo-listrik.png" alt="">
                     <p>Listrik Biru</p>
                 </a>
             </div>
 
             <ul>
-                <!-- <li><a class="mode-text" href="index.php">Pembelian</a></li>
-                <li><a class="mode-text" href="php/rent.php">Pelanggan</a></li> -->
+                <!-- <li><a class="mode-text" href="index.php">Pembelian</a></li> -->
+                <li><a class="mode-text" href="profil.php">Profil</a></li>
                 <li><a class="mode-text" href="tarif.php">Tarif</a></li>
                 <div class="logout-btn">
                     <a href="logout.php">Logout</a>
@@ -69,13 +73,36 @@
     <!-- END HEADER -->
     
     <!-- PROFIL CONTENT -->
-    <section>
-    <?php 
-        $id_user = $_SESSION['akun']['id'];
-        $read = mysqli_query($conn, "SELECT * FROM transaksi WHERE iduser = '$id_user'");
+    <section id="profil">
+        <!-- Data User -->
+        <div class="container-udata">
+            <div class="udata-right">
+                <img src="../img/saya.png" alt="">
+            </div>
+            <div class="udata-left">
+                <h2><?php echo $data['nama'] ?></h2>
+                <div class="uleft-content">
+                    <div class="baca-data">
+                        <p><?php echo $data['id'] ?></p>
+                        <p><?php echo $data['username'] ?></p>
+                        <p><?php echo $data['telepon'] ?></p>
+                        <p><?php echo $data['alamat'] ?></p>
+                    </div>
+                    <div class="aksi-data">
+                        <div class="ubah-pwd"><a href="">Ubah password</a></div>
+                        <div class="ubah-data"><a href="">Ubah data</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Data User -->
 
-        if(mysqli_num_rows($read) > 0){
-    ?>
+        <!-- Riwayat Transaksi -->
+        <?php 
+            $read = mysqli_query($conn, "SELECT * FROM transaksi WHERE iduser = '$id_user'");
+
+            // if(mysqli_num_rows($read) > 0){
+        ?>
         <div class="daftar-data">
             <div class="table-user hover-table">
                 <div class="feature">
@@ -102,11 +129,12 @@
                                     <td><?php echo $row['totalkwh']?></td>
                                     <td><?php echo $row['idtarif']?></td>
                                 </tr>
-                        <?php }} ?>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
         </div>
+        <!-- End Riwayat Transaksi -->
     </section>
     <!-- END PROFIL CONTENT -->
     
