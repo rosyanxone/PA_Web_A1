@@ -78,25 +78,29 @@
 	</div>
 	<br>
 	<br>
-		<form action="aksi_tambah_tarif.php" method="POST">
+		<form action="aksi_tambah_tarif.php" method="POST" enctype="multipart/form-data">
 			<center>
 			<table border="0" cellpadding="10">
 				<tr>
 					<td>ID TARIF</td>
 					<td><input type="text" name="id" id="id"></td>
 				</tr>
-					<tr>
-						<td>DAYA</td>
-						<td><input type="text" name="daya" id="daya"></td>		
-					</tr>
-					<tr>
-						<td>TARIF/kWH</td>
-						<td><input type="text" name="tarifperkwh" id="tarifperkwh"></td>		
-					</tr>
-								<tr>
-									<td></td>
-									<td><input class="pointer" type="submit" value="Simpan"></td>
-								</tr>
+				<tr>
+					<td>FOTO PROFIL</td>
+					<td><input type="file" name="foto" id="foto" accept=".jpg, .jpeg, .png, .gif"></td>		
+				</tr>
+				<tr>
+					<td>DAYA</td>
+					<td><input type="text" name="daya" id="daya"></td>		
+				</tr>
+				<tr>
+					<td>TARIF/kWH</td>
+					<td><input type="text" name="tarifperkwh" id="tarifperkwh"></td>		
+				</tr>
+				<tr>
+					<td></td>
+					<td><input class="pointer" type="submit" value="Simpan"></td>
+				</tr>
 			</center>
 			</table>
 		</form>

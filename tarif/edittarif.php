@@ -84,7 +84,7 @@
 		$data = mysqli_fetch_array($query);
 	?>
 	
-	<form action='aksi_edit_tarif.php?id=<?php echo "$id"; ?>' method='POST'>
+	<form action='aksi_edit_tarif.php?id=<?php echo "$id"; ?>' method='POST' enctype="multipart/form-data">
 		<center>
 			
 		<table border="0" cellpadding="10"> 
@@ -93,6 +93,12 @@
 				<td>ID TARIF</td>
 				<td>:</td>
 				<td><input type="text" name="id" value="<?php echo $data['id'] ?>"></td>
+			</tr>
+
+			<tr>
+				<td>FOTO PROFIL</td>
+				<td>:</td>
+				<td><input type="file" name="foto" id="foto" accept=".jpg, .jpeg, .png, .gif"></td>		
 			</tr>
 			
 			<tr>
