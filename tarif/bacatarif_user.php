@@ -16,12 +16,6 @@
 		
 	</div>
     <div class="container">
-        <center>
-            <?php 
-                    echo "Waktu sekarang ". date("h:i:sa");
-                ?><br><br>
-            <input type="button" value="Tambah Data Tarif" onclick="location.href='tambahtarif.php'">
-        </center>
         <br>
         <div class="grid-container">
             <?php
@@ -39,10 +33,6 @@
                         </p>
                         <p>
                             Rp. <?php echo "$data[tarifperkwh]"; ?>
-                        </p>
-                        <p class="aksi">
-                            <a class="edit" href="edittarif.php?id=<?php echo"$data[id]"; ?>">EDIT</a>
-                            <a class="hapus" href="hapustarif.php?id=<?php echo"$data[id]"; ?>" onclick="return confirm('YAKINNN !!!')">HAPUS</a>
                         </p>
                     </div>
 			<?php
