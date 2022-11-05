@@ -2,8 +2,9 @@
     session_start();
     require '../php/connection.php';
 
-    if(!isset($_SESSION['login'])){
-        header("Location: login.php");
+    if(!isset($_SESSION['login']) || ($_SESSION['akun']['level'] == 'admin')){
+        header("Location: logout.php");
+        // header("Location: login.php");
         exit;
     } else {
         $id_user = $_SESSION['akun']['id'];
@@ -45,9 +46,14 @@
             </div>
 
             <ul>
-                <!-- <li><a class="mode-text" href="index.php">Pembelian</a></li> -->
-                <li><a class="mode-text" href="profil.php">Profil</a></li>
-                <li><a class="mode-text" href="tarif.php">Tarif</a></li>
+                <li><a class="mode-text" href="../tarif.php">Tarif</a></li>
+                <?php if($_SESSION['akun']['level'] == 'admin') { ?>
+                    <li><a class="mode-text" href="#">Transaksi</a></li>
+                    <li><a class="mode-text" href="../pelanggan.php">Pelanggan</a></li>
+                <?php } if($_SESSION['akun']['level'] == 'user') { ?>
+                    <li><a class="mode-text" href="profil.php">Profil</a></li>
+                    <!-- -1 -->
+                <?php } ?>
                 <div class="logout-btn">
                     <a href="logout.php">Logout</a>
                 </div>
