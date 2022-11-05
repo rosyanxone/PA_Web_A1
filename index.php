@@ -41,7 +41,7 @@
             </div>
 
             <ul>
-                <li><a class="mode-text" href="#">Pembelian</a></li>
+                <li><a class="mode-text" href="pembelian/bacapembelian.php">Pembelian</a></li>
                 <li><a class="mode-text" href="user/bacauser.php">Pelanggan</a></li>
                 <li><a class="mode-text" href="tarif/bacatarif.php">Tarif</a></li>
             </ul>
