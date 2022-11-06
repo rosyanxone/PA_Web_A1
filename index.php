@@ -3,7 +3,7 @@
 
     if(!isset($_SESSION['login'])) {
         print_r($_SESSION);
-        header('location: user/login.php');
+        header('location: auth/login.php');
         exit;
     }
 ?>
@@ -43,8 +43,8 @@
             <ul>
                 <li><a class="mode-text" href="tarif.php">Tarif</a></li>
                 <?php if($_SESSION['akun']['level'] == 'admin') { ?>
-                    <li><a class="mode-text" href="#">Transaksi</a></li>
-                    <li><a class="mode-text" href="pelanggan.php">Pelanggan</a></li>
+                    <li><a class="mode-text" href="admin/transaksi.php">Transaksi</a></li>
+                    <li><a class="mode-text" href="admin/pelanggan.php">Pelanggan</a></li>
                 <?php } if($_SESSION['akun']['level'] == 'user') { ?>
                     <li><a class="mode-text" href="user/profil.php">Profil</a></li>
                     <!-- -1 -->

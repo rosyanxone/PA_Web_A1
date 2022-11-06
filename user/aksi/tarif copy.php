@@ -1,12 +1,3 @@
-<?php
-    session_start();
-
-    if(!isset($_SESSION['login'])) {
-        print_r($_SESSION);
-        header('location: auth/login.php');
-        exit;
-    }
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +16,6 @@
     <link href="//db.onlinewebfonts.com/c/213e56f9ea368890b9d2da0577e49dab?family=Zona+Pro" rel="stylesheet" type="text/css"/>
 
     <!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="stylesheet/tarif.css">
     <link rel="stylesheet" href="stylesheet/style.css">
     <link rel="stylesheet" href="stylesheet/style-mobile.css">
 </head>
@@ -42,16 +32,11 @@
             </div>
 
             <ul>
+                <li><a class="mode-text" href="index.php">Pembelian</a></li>
+                <li><a class="mode-text" href="php/rent.php">Pelanggan</a></li>
                 <li><a class="mode-text" href="tarif.php">Tarif</a></li>
-                <?php if($_SESSION['akun']['level'] == 'admin') { ?>
-                    <li><a class="mode-text" href="#">Transaksi</a></li>
-                    <li><a class="mode-text" href="pelanggan.php">Pelanggan</a></li>
-                <?php } if($_SESSION['akun']['level'] == 'user') { ?>
-                    <li><a class="mode-text" href="user/profil.php">Profil</a></li>
-                    <!-- -1 -->
-                <?php } ?>
                 <div class="logout-btn">
-                    <a href="user/logout.php">Logout</a>
+                    <a href="php/auth/logout.php">Logout</a>
                 </div>
             </ul>
             <div class="dark-mode-toggle">
@@ -74,40 +59,30 @@
     </header>
     <!-- END HEADER -->
 	
-    <!-- TARIF CONTENT -->
-    <div class="container minggirin-navbar">
-        <div class="grid-container">
-            <?php
-                require('php/connection.php');
-				$no=1;
-				$sql="SELECT * FROM tarif";
-				$query= mysqli_query($conn, $sql);
-				while ($data = mysqli_fetch_array($query))
-				{
-			?>
-					<div>
-                        <img src="img/voltase/2.png"/>
-                        <p>
-                            <?php echo "$data[id]"; ?> ||
-                            <?php echo "$data[daya]"; ?><br>
-                        </p>
-                        <p>
-                            Rp.<?php echo "$data[tarifperkwh]"; ?>
-                        </p>
-                        <?php if($_SESSION['akun']['level'] == 'admin') { ?>
-                            <p class="aksi">
-                                <a class="edit" href="edittarif.php?id=<?php echo"$data[id]"; ?>">EDIT</a>
-                                <a class="hapus" href="hapustarif.php?id=<?php echo"$data[id]"; ?>" onclick="return confirm('YAKINNN !!!')">HAPUS</a>
-                            </p>
-                        <?php } ?>
-                    </div>
-			<?php
-					$no++;
-				}
-			?>
-        </div>
-    </div>
-    <!-- END TARIF CONTENT -->
+
+    
+    
+	<table>
+        <?php
+            require('php/connection.php');
+            require('php/randomstr.php');
+            $randstr = RandomString(2);
+            $randstr2 = RandomString(1);
+            $randstr3 = RandomString(16, $num);
+            // echo $randstr3;
+            // echo 'TR/'.$randstr.'-F'.$randstr2;
+            $read = mysqli_query($conn, 'SELECT * FROM tarif');
+
+            if(mysqli_num_rows($read) > 0){
+                while($row = mysqli_fetch_array($read)){
+		?>
+			<tr class="games-content">
+                <td><?php echo "$row[id]"; ?></td>
+                <td><?php echo "$row[daya]"; ?></td>
+                <td><?php echo "$row[tarifperkwh]"; ?></td>
+		<?php }} ?>
+            </tr>
+    </table>
 
     <!-- javascript -->
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
