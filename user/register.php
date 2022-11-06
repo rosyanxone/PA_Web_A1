@@ -8,7 +8,7 @@
         $nama = $_POST['nama'];
         $telepon = $_POST['telepon'];
         $alamat = $_POST['alamat'];
-        $level = 'user';
+        $level = 'admin';
 
 
         if($password === $cPassword) {
@@ -46,43 +46,43 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrasi</title>
-    <link rel="stylesheet" type="text/css" href="../styles/login.css">
-
-    <style>
-        .inputan {
-            margin-left: 25px;
-        }
-    </style>
+    <title>Daftar</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="Stylesheet" href="../styles/register.css">
 </head>
-<body>
-    <div class="kotak_login">
-        <h3 class="tulisan_login">LOGIN</h3>
-        <form action="" method="post">
-        <center>
-            <img src="../img/qw.png">
-            </center>
-            <input type="text" name="nama" id="nama" class="inputan" placeholder="Nama" required>
-            <input type="number" name="telepon" id="telepon" class="inputan" placeholder="Telepon" required>
-            <input type="text" name="alamat" id="alamat" class="inputan" placeholder="Alamat" required>
-            
-            <input type="text" name="username" id="username" class="inputan" placeholder="Username" required>
-        
-            <input type="password" name="password" id="password" class="inputan" placeholder="Password" required>
 
-            <input type="password" name="confirm-password" id="confirm-password" class="inputan" placeholder="Konfirmasi Password" required>
+<body>
+    <div class="mainDaftar">
+        <p class="daftar" align="center">Daftar</p>
+        <form class="formDaftar" method="POST">
+            <input type="text" name="nama" id="nama" class="namaDaftar"  align="center" placeholder="Nama" required>
+
+            <input type="number" name="telepon" id="telepon" class="namaDaftar"  align="center" placeholder="Telepon" required>
+
+            <input type="text" name="alamat" id="alamat" class="namaDaftar"  align="center" placeholder="Alamat" required>
+            
+            <input type="text" name="username" id="username" class="namaDaftar"  align="center" placeholder="Username" required>
         
-            <button name="register" class="tombol_login" type="submit">Login</button>
-        
-            <br>
-            <br>
-            <a class="link kipak" href="login.php">Sudah punya akun? Login</a>
-        </center>
+            <input type="password" name="password" id="password" class="passDaftar"  align="center" placeholder="Password" required>
+
+            <input type="password" name="confirm-password" id="confirm-password" class="passDaftar" align="center" placeholder="Konfirmasi Password" required>
+
+            <button name="register" align="center" type="submit">Daftar</button>
+
+            <!-- <input  class="namaDaftar"     type="text"     align="center" placeholder="Nama">
+            <input  class="userNameDaftar" type="text"     align="center" placeholder="Username">
+            <input  class="passDaftar"     type="password" align="center" placeholder="Password">
+            <input  class="passDaftar"     type="password" align="center" placeholder="Konfirmasi Password">
+
+            <button align="center">Daftar</button> -->
+            <p      class="loginDaftar" align="center"><a href="login.php">Login?</p>
         </form>
-     </div>
+    </div>
 </body>
 </html>

@@ -13,7 +13,7 @@
 <html>
 <head>
 	<title>PT Listrik Biru</title>
-	<link rel="stylesheet" type="text/css" href="styles/styles.css">
+	<link rel="stylesheet" type="text/css" href="styles/style-old.css">
 	<link rel="SHORTCUT ICON" href="img/logo/colokan.png">
 </head>
 <body>

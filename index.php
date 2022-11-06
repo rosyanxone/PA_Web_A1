@@ -1,11 +1,13 @@
 <?php
     session_start();
-
+    require 'koneksi.php';
+    
     if(!isset($_SESSION['login'])) {
         print_r($_SESSION);
         header('location: user/login.php');
         exit;
     }
+    $level = $_SESSION['level'];
 ?>
 
 <!DOCTYPE html>
@@ -41,12 +43,14 @@
             </div>
 
             <ul>
-                <li><a class="mode-text" href="pembelian/bacapembelian.php">Pembelian</a></li>
-                <li><a class="mode-text" href="user/bacauser.php">Pelanggan</a></li>
-                <li><a class="mode-text" href="tarif/bacatarif.php">Tarif</a></li>
+                <?php if($level == 'admin') { ?>
+                    <li><a class="mode-text" href="pembelian/bacapembelian.php">Pembelian</a></li>
+                    <li><a class="mode-text" href="user/bacauser.php">Pelanggan</a></li>
+                    <li><a class="mode-text" href="tarif/bacatarif.php">Tarif</a></li>
+                <?php }?>
             </ul>
             <div class="logout-btn">
-                <a href="php/auth/logout.php">Logout</a>
+                <a href="logout.php">Logout</a>
             </div>
             <div class="dark-mode-toggle">
                 <input type="checkbox" class="checkbox" id="chk"/>
