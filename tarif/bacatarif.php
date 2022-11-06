@@ -32,7 +32,7 @@
 				{
 			?>
 					<div>
-                        <img src="../img/voltase/2.png"/>
+                        <img src="../foto/<?php echo $data['foto']; ?>">
                         <p>
                             <?php echo "$data[id]"; ?> ||
                             <?php echo "$data[daya]"; ?><br>
