@@ -52,7 +52,7 @@
                     <li><a class="mode-text" href="../pelanggan.php">Pelanggan</a></li>
                 <?php } if($_SESSION['akun']['level'] == 'user') { ?>
                     <li><a class="mode-text" href="profil.php">Profil</a></li>
-                    <!-- -1 -->
+                    <li><a class="mode-text" href="kontak.php">Kontak</a></li>
                 <?php } ?>
                 <div class="logout-btn">
                     <a href="../auth/logout.php">Logout</a>

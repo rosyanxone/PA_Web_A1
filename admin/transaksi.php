@@ -48,8 +48,9 @@
             <ul>
                 <li><a class="mode-text" href="../tarif.php">Tarif</a></li>
                 <?php if($_SESSION['akun']['level'] == 'admin') { ?>
-                    <li><a class="mode-text" href="#">Transaksi</a></li>
+                    <li><a class="mode-text" href="transaksi.php">Transaksi</a></li>
                     <li><a class="mode-text" href="pelanggan.php">Pelanggan</a></li>
+                    <li><a class="mode-text" href="daftar-pesan.php">Kontak</a></li>
                 <?php } if($_SESSION['akun']['level'] == 'user') { ?>
                     <li><a class="mode-text" href="../user/profil.php">Profil</a></li>
                     <!-- -1 -->

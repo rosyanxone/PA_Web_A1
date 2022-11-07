@@ -46,9 +46,10 @@
                 <?php if($_SESSION['akun']['level'] == 'admin') { ?>
                     <li><a class="mode-text" href="admin/transaksi.php">Transaksi</a></li>
                     <li><a class="mode-text" href="admin/pelanggan.php">Pelanggan</a></li>
+                    <li><a class="mode-text" href="admin/daftar-pesan.php">Kontak</a></li>
                 <?php } if($_SESSION['akun']['level'] == 'user') { ?>
                     <li><a class="mode-text" href="user/profil.php">Profil</a></li>
-                    <!-- -1 -->
+                    <li><a class="mode-text" href="user/kontak.php">Kontak</a></li>
                 <?php } ?>
                 <div class="logout-btn">
                     <a href="auth/logout.php">Logout</a>

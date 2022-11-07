@@ -4,12 +4,7 @@
 
     if(!isset($_SESSION['login']) || ($_SESSION['akun']['level'] == 'user')){
         header("Location: ../auth/logout.php");
-        // header("Location: login.php");
         exit;
-    } else {
-        $id_user = $_SESSION['akun']['id'];
-        $sql = mysqli_query($conn, "SELECT * FROM user WHERE id = '$id_user'");
-        $data = mysqli_fetch_array($sql);
     }
 ?>
 
@@ -84,49 +79,35 @@
     <section class="minggirin-navbar">
         <div class="daftar-data">
             <div class="table-user hover-table">
-                <div class="feature">
-                    <form method="GET" class="search-container">
-                        <input type="text" name="keyword" id="keyword" class="search-input fas fa-search" placeholder="&#xF002; Cari pelanggan">
-                        <button type="submit" name="search" hidden></button>
-                    </form>
-                </div>
                 <table>
                     <thead>
                         <tr>
                             <th>NO</th>
-                            <th>ID PELANGGAN</th>
-                            <th>USERNAME</th>
-                            <th>NAMA</th>
-                            <th>NO TELP</th>
-                            <th>ALAMAT</th>
-                            <th>TRANSAKSI</th>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>No Hp</th>
+                            <th>Pesan</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php 
                             require('../php/connection.php');
-                            if(isset($_GET['search'])) {
-                                $keyword = $_GET['keyword'];
-                                $read = mysqli_query($conn, "SELECT * FROM user WHERE username LIKE '%$keyword%' AND level != 'admin'");
-                            } else {
-                                $read = mysqli_query($conn, "SELECT * FROM user WHERE level != 'admin'");
-                            }
+                            $read = mysqli_query($conn, "SELECT * FROM kontak");
 
                             if(mysqli_num_rows($read) > 0){
-                                $nomor = 1;
                                 while($row = mysqli_fetch_array($read)){
                             ?>
                                 <tr class="games-content">
-                                    <td><?php echo $nomor++?></td>
                                     <td><?php echo $row['id']?></td>
-                                    <td><?php echo $row['username']?></td>
                                     <td><?php echo $row['nama']?></td>
-                                    <td><?php echo $row['telepon']?></td>
-                                    <td><?php echo $row['alamat']?></td>
+                                    <td><?php echo $row['email']?></td>
+                                    <td><?php echo $row['nohp']?></td>
+                                    <td><?php echo $row['pesan']?></td>
                                     <td>
                                         <div class="action">
-                                            <a class="btn-action read-action" href="transaksi.php?keyword=<?php echo $row['id'] ?>&search=">
-                                                <i class="fa-solid fa-eye"></i> Lihat
+                                            <a class="btn-action del-action" href="aksi/delete_message.php?id=<?php echo $row['id']; ?>">
+                                                <i class="fa-sharp fa-solid fa-circle-xmark"></i> Hapus
                                             </a>
                                         </div>
                                     </td>

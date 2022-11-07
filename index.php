@@ -45,9 +45,10 @@
                 <?php if($_SESSION['akun']['level'] == 'admin') { ?>
                     <li><a class="mode-text" href="admin/transaksi.php">Transaksi</a></li>
                     <li><a class="mode-text" href="admin/pelanggan.php">Pelanggan</a></li>
+                    <li><a class="mode-text" href="admin/daftar-pesan.php">Kontak</a></li>
                 <?php } if($_SESSION['akun']['level'] == 'user') { ?>
                     <li><a class="mode-text" href="user/profil.php">Profil</a></li>
-                    <!-- -1 -->
+                    <li><a class="mode-text" href="user/kontak.php">Kontak</a></li>
                 <?php } ?>
                 <div class="logout-btn">
                     <a href="auth/logout.php">Logout</a>
@@ -75,10 +76,10 @@
             <div class="header-item-left">
                 <h1>LISTRIK BIRU</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque possimus suscipit reiciendis, dolore, ratione quos ipsa iure aspernatur cum debitis inventore tenetur saepe. Doloremque, et deserunt voluptatum sapiente nesciunt illum repudiandae? Quod aspernatur nihil eius assumenda vitae tempore repellat autem pariatur! Voluptatum fugit nesciunt reprehenderit eum voluptatibus aliquam ipsa sed.</p>
-                <a href="php/rent.php">
+                <a href="#soon">
                     <button class="rent-btn">Pesan!</button>
                 </a>
-                <a href="php/game.php">
+                <a href="tarif.php">
                     <button class="play-btn">Tarif</button>
                 </a>
             </div>

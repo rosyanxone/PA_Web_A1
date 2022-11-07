@@ -23,6 +23,7 @@
     
             $tipe = explode('.', $format_file);
             $foto = $username.'-'.$randstring.'.'.$tipe[1];
+            move_uploaded_file($tmp_name, './../img/profil/' . $foto);
         }
         
         if($password === $confirm_pwd) {
@@ -35,7 +36,6 @@
                 </script>';
             } else {
 
-                move_uploaded_file($tmp_name, './../img/profil/' . $foto);
                 $sql = "INSERT INTO user (id, username, nama, telepon, alamat, foto, level, password) VALUES ('$id', '$username', '$nama', '$telepon', '$alamat', '$foto', '$level', '$password')";
                 $push_data = mysqli_query($conn, $sql);
                 
