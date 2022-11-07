@@ -23,7 +23,7 @@
                 exit;
             } else {
                 echo '<script>
-                        alert("Login gagal2");
+                        alert("Salah User atau Password");
                         document.location.href = "login.php";
                     </script>';
             }
@@ -37,39 +37,30 @@
     }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="../styles/login.css">
-
-    <style>
-        .inputan {
-            margin-left: 25px;
-        }
-    </style>
+    
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="Stylesheet" href="../styles/Login.css">
 </head>
+  
 <body>
-    <div class="kotak_login">
-        <h3 class="tulisan_login">LOGIN</h3>
-        <form action="" method="post">
-        <center>
-            <img src="../img/qw.png">
-            </center>
-            <input type="text" name="username" id="username" class="inputan" placeholder="Username" required>
+    <div class="mainLogin">
+        <p class="login" align="center">ListrikBiru</p>
+        <form class="formLogin" method="post">
+            <input  class="userNameLogin" name="username" id="username" type="text"     align="center" placeholder="Username">
+            <input  class="passLogin"     name="password" id="password" type="password" align="center" placeholder="Password">
         
-            <input type="password" name="password" id="password" class="inputan" placeholder="Password" required>
-        
-            <button name="login" class="tombol_login" type="submit">Login</button>
-        
-            <br/>
-            <br/>
-            <a class="link" href="register.php">Create an Account</a>
-        </center>
-        </form>
-     </div>
+            <button align="center" name="login" type="submit">Masuk</button>
+            <p      class="daftarLogin" align="center"><a href="register.php">Daftar</p>         
+    </div>
 </body>
 </html>
