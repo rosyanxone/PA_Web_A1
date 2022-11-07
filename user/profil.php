@@ -3,7 +3,7 @@
     require '../php/connection.php';
 
     if(!isset($_SESSION['login']) || ($_SESSION['akun']['level'] == 'admin')){
-        header("Location: logout.php");
+        header("Location: ../auth/logout.php");
         // header("Location: login.php");
         exit;
     } else {
@@ -55,7 +55,7 @@
                     <!-- -1 -->
                 <?php } ?>
                 <div class="logout-btn">
-                    <a href="logout.php">Logout</a>
+                    <a href="../auth/logout.php">Logout</a>
                 </div>
             </ul>
             <div class="dark-mode-toggle">
@@ -83,7 +83,7 @@
         <!-- Data User -->
         <div class="container-udata">
             <div class="udata-right">
-                <img src="../img/saya.png" alt="">
+                <img src="../img/profil/<?php echo $data['foto'] ?>" alt="">
             </div>
             <div class="udata-left">
                 <h2><?php echo $data['nama'] ?></h2>

@@ -1,5 +1,2 @@
-/tarif copy.php
-/user/register copy.php
-/user/login copy.php
-/tarif
-/img/saya.png
+/auth/register copy.php
+/auth/login copy.php

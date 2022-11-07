@@ -82,17 +82,14 @@
     <!-- MAIN CONTENT -->
     <section class="minggirin-navbar">
         <div class="daftar-data">
-        <?php 
-            require('../php/randomstr.php');
-            $randstr = RandomString(4, $num);
-            // user1997-P5633
-        ?>
             <div class="table-user hover-table">
                 <div class="feature">
                     <form method="GET" class="search-container">
-                        <input type="date">
-                        <!-- <input type="text" name="keyword" id="keyword" class="search-input fas fa-search" placeholder="&#xF002; Cari pelanggan"> -->
-                        <button type="submit" name="search" hidden></button>
+                        <h3>Cari berdasarkan tanggal</h3>
+                        <input type="date" name="date-from">
+                        to
+                        <input type="date" name="date-to">
+                        <button type="submit" name="searchByDate" hidden></button>
                     </form>
                 </div>
                 <table>
@@ -114,6 +111,10 @@
                             if(isset($_GET['search'])) {
                                 $keyword = $_GET['keyword'];
                                 $read = mysqli_query($conn, "SELECT * FROM transaksi WHERE iduser = '$keyword'");
+                            } else if(isset($_GET['searchByDate'])) {
+                                $dateFrom = $_GET['date-from'];
+                                $dateTo = $_GET['date-to'];
+                                $read = mysqli_query($conn, "SELECT * FROM transaksi WHERE `tanggal` BETWEEN '$dateFrom' and '$dateTo'");
                             } else {
                                 $read = mysqli_query($conn, "SELECT * FROM transaksi");
                             }
@@ -130,8 +131,8 @@
                                     <td><?php echo $row['idtarif']?></td>
                                     <td>
                                         <div class="action">
-                                            <a class="btn-action read-action" href="aksi/game_edit.php?id=<?php echo $row['id']; ?>">
-                                                <i class="fa-solid fa-eye"></i> Hapus
+                                            <a class="btn-action del-action" href="aksi/delete_history.php?id=<?php echo $row['id']; ?>">
+                                                <i class="fa-sharp fa-solid fa-circle-xmark"></i> Hapus
                                             </a>
                                         </div>
                                     </td>

@@ -50,7 +50,7 @@
                     <!-- -1 -->
                 <?php } ?>
                 <div class="logout-btn">
-                    <a href="user/logout.php">Logout</a>
+                    <a href="auth/logout.php">Logout</a>
                 </div>
             </ul>
             <div class="dark-mode-toggle">
@@ -101,28 +101,30 @@
             </div>
         </div>
 
-        <div class="partners-container mundur-dikit">
-            <h3>Our Partners</h3>
-            <div class="content-img">
-                <img src="img/partners/dana.png" alt="">
-                <img src="img/partners/ovo.png" alt="">
-                <img src="img/partners/gopay.png" alt="">
-            </div>
-        </div>
-
         <div class="service-container">
-            <h3>Our Services</h3>
+            <h3>Daftar Tarif</h3>
             <div class="service-cards">
-                <div class="card-panel mode-bg mode-text">
-                    <!-- <img src="img/service/ps-logo.png" class="mode-img" alt=""> -->
-                    <h4>Playstation</h4>
-                    <p>PlayStation is a brand produced by Sony Interactive Entertainment. The first PlayStation console was released in Japan in December 1994, and released worldwide the following year.</p>
-                </div>
-                <div class="card-panel mode-bg mode-text">
-                    <!-- <img src="img/service/xbox-logo.png" class="mode-img" alt=""> -->
-                    <h4>Xbox</h4>
-                    <p>Xbox is a video gaming brand created and owned by Microsoft. The brand was first introduced in the United States in November 2001, with the launch of the original Xbox console.</p>
-                </div>
+                <?php
+                    require('php/connection.php');
+                    $sql="SELECT * FROM tarif";
+                    $query= mysqli_query($conn, $sql);
+                    while ($data = mysqli_fetch_array($query)) { 
+                ?>
+                    <div class="card-panel mode-bg mode-text" onclick="window.location='tarif.php'">
+                        <div class="grid-container">
+                            <div>
+                                <img src="img/voltase/<?php echo $data['foto'] ?>"/>
+                                <p>
+                                    <?php echo "$data[id]"; ?> ||
+                                    <?php echo "$data[daya]"; ?><br>
+                                </p>
+                                <p>
+                                    Rp.<?php echo "$data[tarifperkwh]"; ?>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </section>

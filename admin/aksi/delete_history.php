@@ -7,15 +7,15 @@
     } else {
         require("../../php/connection.php");
     
-        $id = $_SESSION['akun']['id'];
-        $sql = "DELETE FROM transaksi WHERE iduser = '$id'";
+        $id = $_GET['id'];
+        $sql = "DELETE FROM transaksi WHERE id = '$id'";
         $query = mysqli_query($conn,$sql);
         
         if($query){
             ?>
                 <script>
                     alert("Data berhasil dihapus!");
-                    window.location='../profil.php';
+                    window.location='../transaksi.php';
                 </script>
             <?php
         }else {
