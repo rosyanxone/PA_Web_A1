@@ -13,7 +13,7 @@ body {
     padding: 30px;
 }
         
-.infoHK {
+.bungkus1 {
     display: flex;
     width: 90%;
 }
@@ -67,7 +67,7 @@ button {
     font-family: 'Ubuntu', sans-serif;
 }   
 
-.details {
+.bungkus2 {
     font-family: 'Ubuntu', sans-serif;
     display: flex;
     flex-direction: column;
@@ -83,21 +83,21 @@ button {
     align-items: center;
     font-size: 12px;
 }
-.bungkus{
+.infoHK{
     padding: 25px;
 }
 
-.details h3 {
+.bungkus2 h3 {
     text-align: center;
 }
-.details p {
+.bungkus2 p {
     font-size: 15px;
     margin-left: 15px;
 }
-.details p a{
+.bungkus2 p a{
 color: white;
 }
-.details p a:hover{
+.bungkus2 p a:hover{
 color: rgb(160, 154, 154);
 }
 
@@ -107,7 +107,7 @@ color: rgb(160, 154, 154);
 }
 
 @media screen and (max-width:780px) {
-    .contact-info {
+    .bungkus1 {
         flex-direction: column;
         width: 90%;
     }
@@ -115,7 +115,7 @@ color: rgb(160, 154, 154);
         width: 100%;
         margin-bottom: 5px;
     }
-    .details{
+    .bungkus2{
         width: 100%;
     }
 }
