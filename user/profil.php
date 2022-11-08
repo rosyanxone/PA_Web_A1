@@ -95,8 +95,8 @@
                         <p><?php echo $data['alamat'] ?></p>
                     </div>
                     <div class="aksi-data">
-                        <div class="ubah-pwd"><a href="">Ubah password</a></div>
-                        <div class="ubah-data"><a href="">Ubah data</a></div>
+                        <div class="ubah-pwd"><a href="profil/ubah-pwd.php?id=<?php echo $data['id'] ?>">Ubah password</a></div>
+                        <div class="ubah-data"><a href="profil/edit.php?id=<?php echo $data['id'] ?>">Ubah data</a></div>
                     </div>
                 </div>
             </div>

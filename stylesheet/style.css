@@ -475,11 +475,20 @@ header {
 .del-action {
     background-color: red;
 }
+.del-action:hover {
+    background-color: #AA0100;
+}
+
+.edit-action {
+    background-color: #f1c40f;
+}
+.edit-action:hover {
+    background-color: #f39c12;
+}
 
 .read-action {
     background-color: #01AA4F;
 }
-
 .read-action:hover {
     background-color: green;
 }

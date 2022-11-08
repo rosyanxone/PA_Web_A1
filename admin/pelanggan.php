@@ -100,6 +100,7 @@
                             <th>NO TELP</th>
                             <th>ALAMAT</th>
                             <th>TRANSAKSI</th>
+                            <th>AKSI</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -130,10 +131,24 @@
                                             </a>
                                         </div>
                                     </td>
+                                    <td>
+                                        <div class="action">
+                                            <a class="btn-action edit-action" href="pelanggan/edit.php?id=<?php echo $row['id'] ?>">
+                                                 Edit
+                                            </a>
+                                            <a class="btn-action del-action" href="pelanggan/hapus.php?id=<?php echo $row['id'] ?>">
+                                                 Hapus
+                                            </a>
+                                        </div>
+                                    </td>
                                 </tr>
-                        <?php }} else { ?>
+                        <?php } ?>
+                            <tr onclick="window.location='pelanggan/tambah.php'">
+                                <td colspan="8" align="center">+ Tambah data</td>
+                            </tr>
+                        <?php } else { ?>
                             <tr>
-                                <td colspan="7" align="center">-- data tidak ditemukan --</td>
+                                <td colspan="8" align="center">-- data tidak ditemukan --</td>
                             </tr>
                         <?php } ?>
                     </tbody>

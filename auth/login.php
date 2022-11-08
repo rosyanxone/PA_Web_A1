@@ -45,6 +45,7 @@
     <div class="mainLogin">
         <p class="login" align="center">ListrikBiru</p>
         <div class="error-handle">
+            <?php if(isset($_GET['pesan'])) { echo $_GET['pesan']; } ?>
             <?php if(isset($error_pass)){ echo "<p class='handle-output'>Password anda salah!</p>"; }?>
             <?php if(isset($error_username)){ echo "<p class='handle-output'>Akun tidak ditemukan!</p>"; }?>
         </div>
