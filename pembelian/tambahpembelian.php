@@ -1,131 +1,46 @@
 <?php
 	include '../koneksi.php';
 ?>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title></title>
-	<style type="text/css">
-			body{
-				margin: auto;
-				font-family: arial;
-			}
-
-			.bekgron{
-				width: 100%;
-				overflow: hidden;
-				background: #160573;
-			}
-
-				.bekgron h2{
-					margin-left: 15px;
-					color: white;
-				}
-
-			table{
-				border-collapse: collapse;
-				font-weight: bold;
-			}
-
-
-			input{
-				padding: 8px;
-				border-radius: 5px;
-				border-style: solid;
-				border: 1px solid black;
-			}
-
-			.biru{
-				background: #1387ad;
-			}
-
-			.select{
-				width: 100%;
-				padding: 8px;
-			}
-
-			.img{
-				width: 100%;
-				height: 430px;
-				margin: auto;
-				background: url(../img/kotabiru.jpg);
-				background-size: 100% 100%;
-			}
-
-			.footer{
-				width: 100%;
-				background-color: #004d82;
-				text-align: center;
-				font-size: 10pt;
-				color: white; 
-				padding-top: 10px;
-				padding-bottom: 10px;
-				margin-top: 30px;
-			}
-
-			.pointer{
-				cursor: pointer;
-			}
-
-
-	</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Data Pembelian</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="Stylesheet" href="../styles/Pembelian.css">
 </head>
+  
 <body>
-	<div class="bekgron">
-	<h2>Tambah - Manajemen pembelian</h2>
-	</div>
-	<div class="img">
-		
-	</div>
-	<br>
-	<br>
-		<form action="aksi_tambah_pembelian.php" method="POST">
-			<center>
-			<table border="0" cellpadding="10">
-					<tr>
-						<td>ID Pembelian</td>
-						<td>:</td>
-						<td><input type="text" name="id" id="id"></td>
-					</tr>
-					<tr>
-						<td>TANGGAL PEMBELIAN</td>
-						<td>:</td>
-						<td><input type="text" name="tanggal" id="tanggal" value="<?php echo date('d/m/y'); ?>"></td>		
-					</tr>
-					<tr>
-						<td>JUMLAH PEMBELIAN</td>
-						<td>:</td>
-						<td><input type="number" name="jumlahbeli" id="jumlahbeli"></td>		
-					</tr>
-					<tr>
-						<td>NOMOR METER</td>
-						<td>:</td>
-						<td><input type="number" name="nometer" id="nometer"></td>		
-					</tr>
-					<tr>
-						<td>ID TARIF</td>
-						<td>:</td>
-						<td>
-							<select name="idtarif" class="select">
-							<?php
-								$kodetarif = mysqli_query($db_link, "select * from tarif");
-								while ($p = mysqli_fetch_array($kodetarif)){
-									echo "<option value='$p[id]'>($p[id])</option>";
-								}
-							?>
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td><input class="pointer" type="submit" value="Simpan"></td>
-					</tr>
-			</center>
-			</table>
-		</form>
-		<div class="footer">
-		Copyright By Gempar Panggih Dwi Putra &copy; 2022. All right reserved.
-		</div>
+    <div class="mainPembelian">
+        <p    class="pembelian" align="center">Tambah Data Pembelian</p>
+        <form class="formPembelian" action="aksi_tambah_pembelian.php" method="POST">
+            <label class="ket">TANGGAL PEMBELIAN</label>
+            <input class="tglPembelian"    type="text" align="center" name="tanggal" id="tanggal" value="<?php echo date('d/m/y'); ?>" readonly>
+
+            <label class="ket">JUMLAH PEMBELIAN</label>
+            <input class="jumlahPembelian" type="text" align="center" name="jumlahbeli" id="jumlahbeli">
+
+            <label class="ket">NOMOR METER</label>
+            <input class="nomorMeter" name="nometer" type="text" align="center">
+
+            <label  class ="ket">PILIH ID TARIF</label>
+			<select class = "idTarif" name="idtarif" class="select">
+				<?php
+					$kodetarif = mysqli_query($db_link, "select * from tarif");
+					while ($p = mysqli_fetch_array($kodetarif)){
+						echo "<option value='$p[id]'>($p[id])</option>";
+					}
+				?>
+			</select>
+
+            <button align="center">Simpan</button>
+            <p      class="kembali" align="center"><a href="bacapembelian.php">Kembali</p>         
+    </div>
 </body>
 </html>
