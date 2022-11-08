@@ -3,141 +3,49 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title></title>
-	<style type="text/css">
-		body{
-				margin: auto;
-				font-family: arial;
-			}
-
-			.bekgron{
-				width: 100%;
-				overflow: hidden;
-				background: #160573;
-			}
-
-				.bekgron h2{
-					margin-left: 15px;
-					color: white;
-				}
-
-			table{
-				border-collapse: collapse;
-				font-weight: bold;
-			}
-
-
-			input{
-				padding: 8px;
-				border-radius: 5px;
-				border-style: solid;
-				border: 1px solid black;
-			}
-
-			.biru{
-				background: #1387ad;
-			}
-
-			.select{
-				width: 100%;
-				padding: 8px;
-			}
-
-			.img{
-				width: 100%;
-				height: 430px;
-				margin: auto;
-				background: url(../img/kotabiru.jpg);
-				background-size: 100% 100%;
-			}
-
-			.footer{
-				width: 100%;
-				background-color: #004d82;
-				text-align: center;
-				font-size: 10pt;
-				color: white; 
-				padding-top: 10px;
-				padding-bottom: 10px;
-				margin-top: 30px;
-			}
-
-			.pointer{
-				cursor: pointer;
-			}
-	</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubah Data Pelanggan</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="Stylesheet" href="../styles/Pengguna.css">
 </head>
+  
 <body>
-	<div class="bekgron">
-	<h2>Edit - Manajemen Pelanggan</h2>
-	</div>
-	<div class="img">
-		
-	</div>
-	<br>
 	<?php
 		$id=$_GET['id'];
 		$sql = "SELECT * FROM acun WHERE id ='$id'";
 		$query = mysqli_query($db_link,$sql);
 		$data = mysqli_fetch_array($query);
 	?>
-	
-	<form action='aksi_edit_user.php?id=<?php echo "$id"; ?>' method='POST'>
-		<center>
-			
-		<table border="0" cellpadding="10"> 
-			<tr>
-				<td>ID PELANGGAN</td>
-				<td>:</td>
-				<td><input type="number" name="id" id="id" value="<?php echo $data['id'] ?>" readonly></td>
-			</tr>
+    <div class="mainPenggunaEdit">
+        <p    class="pengguna" align="center">Ubah Data Pelanggan</p>
+        <form class="formPengguna" action='aksi_edit_user.php?id=<?php echo "$id"; ?>' method='POST'>
+            <label class="ket">ID</label>
+            <input class="usernamePengguna"  type="number" name="id" id="id" value="<?php echo $data['id'] ?>" readonly align="center">
 
+            <label class="ket">USERNAME</label>
+            <input class="usernamePengguna"  type="text" name="username" id="username" value="<?php echo $data['username'] ?>" align="center">
 
-			<tr>
-				<td>USERNAME</td>
-				<td>:</td>
-				<td><input type="text" name="username" id="username" value="<?php echo $data['username'] ?>"></td>
-			</tr>
+            <label class="ket">PASSWORD</label>
+            <input class="passPengguna" name="password" id="password" value="<?php echo $data['password'] ?>" readonly align="center">
 
-			<tr>
-				<td>PASSWORD</td>
-				<td>:</td>
-				<td><input type="text" name="password" id="password" value="<?php echo $data['password'] ?>" readonly></td>
-			</tr>
+            <label class="ket">NAMA PELANGGAN</label>
+            <input class="namaPelanggan" type="text" name="nama" id="nama" value="<?php echo $data['nama'] ?>" align="center">
 
-			
-			<tr>
-				<td>NAMA</td>
-				<td>:</td>
-				<td><input type="text" name="nama" id="nama" value="<?php echo $data['nama'] ?>"></td>
-			</tr>	
+            <label class="ket">NOMOR TELEPON</label>
+            <input class="namaPelanggan" type="number" name="telepon" id="telepon" value="<?php echo $data['telepon'] ?>" align="center">
 
-			<tr>
-				<td>TELEPON</td>
-				<td>:</td>
-				<td><input type="number" name="telepon" id="telepon" value="<?php echo $data['telepon'] ?>"></td>
-			</tr>	
+            <label class="ket">ALAMAT</label>
+            <input class="namaPelanggan" type="text" name="alamat" id="alamat" value="<?php echo $data['alamat'] ?>" align="center">
 
-			<tr>
-				<td>ALAMAT</td>
-				<td>:</td>
-				<td><input type="text" name="alamat" id="alamat" value="<?php echo $data['alamat'] ?>"></td>
-			</tr>		
-
-			<tr>
-			<td></td>
-			<td></td>
-			<td><input class="pointer" type="submit" value="Simpan"></td>
-		</tr>
-		
-		</table>
-		</center>
-	</form>
-
-	<div class="footer">
-		Copyright By Gempar Panggih Dwi Putra &copy; 2022. All right reserved.
-	</div>
+            <button align="center">Simpan</button>
+            <p      class="kembali" align="center"><a href="bacauser.php">Kembali</p>         
+    </div>
 </body>
 </html>

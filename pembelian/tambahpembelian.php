@@ -17,7 +17,7 @@
 </head>
   
 <body>
-    <div class="mainPembelian">
+    <div class="mainPembelianTambah">
         <p    class="pembelian" align="center">Tambah Data Pembelian</p>
         <form class="formPembelian" action="aksi_tambah_pembelian.php" method="POST">
             <label class="ket">TANGGAL PEMBELIAN</label>

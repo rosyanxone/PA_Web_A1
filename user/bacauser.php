@@ -19,7 +19,7 @@
 			<?php 
 				echo "Waktu sekarang ". date("h:i:sa");
 			?><br><br>
-			<input type="button" value="TAMBAH DATA" onclick="location.href='tambahpelanggan.php'">
+			<input type="button" value="TAMBAH DATA" onclick="location.href='tambah_user.php'">
 			<br><br>
 			<form action="" method="GET">
 				<input type="text" name="keyword"  placeholder="Type to Search...">
