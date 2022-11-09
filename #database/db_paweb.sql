@@ -176,7 +176,7 @@ ALTER TABLE `kontak`
 -- Constraints for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  ADD CONSTRAINT `transaksi_ibfk_2` FOREIGN KEY (`idtarif`) REFERENCES `tarif` (`id`),
+  ADD CONSTRAINT `transaksi_ibfk_2` FOREIGN KEY (`idtarif`) REFERENCES `tarif` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `transaksi_ibfk_3` FOREIGN KEY (`iduser`) REFERENCES `user` (`id`);
 COMMIT;
 

@@ -74,9 +74,14 @@
 
         <div class="header-container">
             <div class="header-item-left">
+                <div class="pesan-container">
+                    <?php if(isset($_GET['pesan'])) {?>
+                        <div class="pesan-sukses"> <?php echo $_GET['pesan']; ?> </div>
+                    <?php } ?>
+                </div>
                 <h1>LISTRIK BIRU</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque possimus suscipit reiciendis, dolore, ratione quos ipsa iure aspernatur cum debitis inventore tenetur saepe. Doloremque, et deserunt voluptatum sapiente nesciunt illum repudiandae? Quod aspernatur nihil eius assumenda vitae tempore repellat autem pariatur! Voluptatum fugit nesciunt reprehenderit eum voluptatibus aliquam ipsa sed.</p>
-                <a href="#soon">
+                <a href="user/pembelian.php">
                     <button class="rent-btn">Pesan!</button>
                 </a>
                 <a href="tarif.php">

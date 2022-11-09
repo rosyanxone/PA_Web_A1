@@ -27,11 +27,6 @@
 		
 		$query = mysqli_query($conn, $sql2);
 		if($query) {
-			?>
-			<script>
-				alert('Loose');
-			</script>
-			<?php
 			header('location: ../../tarif.php');
 		} else {
 			echo "Edit Tarif Gagal";

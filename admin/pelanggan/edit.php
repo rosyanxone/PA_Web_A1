@@ -42,7 +42,7 @@
             <input class="usernamePengguna"  type="text" name="username" id="username" value="<?php echo $data['username'] ?>" align="center">
 
             <label class="ket">PASSWORD</label>
-            <input class="passPengguna" name="password" id="password" value="<?php echo $data['password'] ?>" readonly align="center">
+            <input class="passPengguna" name="password" id="password" value="<?php echo $data['password'] ?>" align="center">
 
             <label class="ket">NAMA PELANGGAN</label>
             <input class="namaPelanggan" type="text" name="nama" id="nama" value="<?php echo $data['nama'] ?>" align="center">
@@ -62,6 +62,7 @@
             $username=$_POST['username'];
             $password=$_POST['password'];
             $nama=$_POST['nama'];
+            $password = password_hash($password, PASSWORD_DEFAULT);
             
             $sql2 ="UPDATE user SET username = '$username' , password = '$password' , nama = '$nama' WHERE id = '$id'";
             

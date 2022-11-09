@@ -162,6 +162,23 @@ header {
     background-size: cover;
 }
 
+.pesan-container {
+    display: flex;
+    justify-content: center;
+}
+
+.pesan-sukses {
+    background-color: #E8F2EF;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0.5px solid #D3E8DE;
+    color: #198677;
+    position: absolute;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 14px;
+}
+
 .header-container {
     display: flex;
     flex-direction: row;
@@ -254,10 +271,6 @@ header {
 .header-item-right {
     padding: 10px;
     flex: 50%;
-}
-
-.img-gif {
-    height: 80vh;
 }
 
 /* price section */
