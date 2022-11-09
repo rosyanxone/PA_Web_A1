@@ -1,7 +1,13 @@
-<?php 
-    require('../php/connection.php');
-    
+<?php
+    session_start();
+    if(!isset($_SESSION['login'])) {
+        header("Location: ../auth/login.php");
+        exit;
+    }
+
     if(isset($_POST['kontak'])){
+        require('../php/connection.php');
+        
         $nama = $_POST['nama'];
         $email = $_POST['email'];
         $nohp = $_POST['nohp'];

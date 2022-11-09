@@ -2,9 +2,13 @@
     session_start();
     require '../php/connection.php';
 
-    if(!isset($_SESSION['login']) || ($_SESSION['akun']['level'] == 'user')){
-        header("Location: ../auth/logout.php");
-        // header("Location: login.php");
+    if(!isset($_SESSION['login'])) {
+        header("Location: ../auth/login.php");
+        exit;
+    }
+    
+    if($_SESSION['akun']['level'] == 'user') {
+        header("Location: ../index.php");
         exit;
     } else {
         $id_user = $_SESSION['akun']['id'];
@@ -108,7 +112,7 @@
                             require('../php/connection.php');
                             if(isset($_GET['search'])) {
                                 $keyword = $_GET['keyword'];
-                                $read = mysqli_query($conn, "SELECT * FROM user WHERE username LIKE '%$keyword%' AND level != 'admin'");
+                                $read = mysqli_query($conn, "SELECT * FROM user WHERE username LIKE '%$keyword%' OR nama LIKE '%$keyword%' AND level != 'admin'");
                             } else {
                                 $read = mysqli_query($conn, "SELECT * FROM user WHERE level != 'admin'");
                             }
@@ -134,19 +138,15 @@
                                     <td>
                                         <div class="action">
                                             <a class="btn-action edit-action" href="pelanggan/edit.php?id=<?php echo $row['id'] ?>">
-                                                 Edit
+                                                <i class="fa-solid fa-square-pen"></i> Edit
                                             </a>
                                             <a class="btn-action del-action" href="pelanggan/hapus.php?id=<?php echo $row['id'] ?>">
-                                                 Hapus
+                                                <i class="fa-sharp fa-solid fa-circle-xmark"></i> Hapus
                                             </a>
                                         </div>
                                     </td>
                                 </tr>
-                        <?php } ?>
-                            <tr onclick="window.location='pelanggan/tambah.php'">
-                                <td colspan="8" align="center">+ Tambah data</td>
-                            </tr>
-                        <?php } else { ?>
+                        <?php }} else { ?>
                             <tr>
                                 <td colspan="8" align="center">-- data tidak ditemukan --</td>
                             </tr>

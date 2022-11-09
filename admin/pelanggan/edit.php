@@ -1,5 +1,14 @@
 <?php
-    include '../../php/connection.php'
+    session_start();
+    if(!isset($_SESSION['login']) ){
+        header("Location: ../../auth/login.php");
+        exit;
+    }
+    
+    if($_SESSION['akun']['level'] == 'user' || $_GET['id'] == '') {
+        header("Location: ../../index.php");
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +27,8 @@
   
 <body>
 	<?php
+        include '../../php/connection.php';
+
 		$id=$_GET['id'];
 		$sql = "SELECT * FROM user WHERE id ='$id'";
 		$query = mysqli_query($conn,$sql);

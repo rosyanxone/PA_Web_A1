@@ -2,8 +2,13 @@
     session_start();
     require '../php/connection.php';
 
-    if(!isset($_SESSION['login']) || ($_SESSION['akun']['level'] == 'user')){
-        header("Location: ../auth/logout.php");
+    if(!isset($_SESSION['login'])){
+        header("Location: ../auth/login.php");
+        exit;
+    }
+
+    if($_SESSION['akun']['level'] == 'user') {
+        header("Location: ../index.php");
         exit;
     }
 ?>
@@ -96,10 +101,11 @@
                             $read = mysqli_query($conn, "SELECT * FROM kontak");
 
                             if(mysqli_num_rows($read) > 0){
+                                $no = 1;
                                 while($row = mysqli_fetch_array($read)){
                             ?>
                                 <tr class="games-content">
-                                    <td><?php echo $row['id']?></td>
+                                    <td><?php echo $no++; ?></td>
                                     <td><?php echo $row['nama']?></td>
                                     <td><?php echo $row['email']?></td>
                                     <td><?php echo $row['nohp']?></td>

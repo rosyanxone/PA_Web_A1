@@ -2,9 +2,13 @@
     session_start();
     require '../php/connection.php';
 
-    if(!isset($_SESSION['login']) || ($_SESSION['akun']['level'] == 'admin')){
-        header("Location: ../auth/logout.php");
-        // header("Location: login.php");
+    if(!isset($_SESSION['login'])) {
+        header("Location: ../auth/login.php");
+        exit;
+    } 
+    
+    if($_SESSION['akun']['level'] == 'admin') {
+        header("Location: ../index.php");
         exit;
     } else {
         $id_user = $_SESSION['akun']['id'];

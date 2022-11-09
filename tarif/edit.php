@@ -1,3 +1,17 @@
+<?php 
+    session_start();
+
+    if(!isset($_SESSION['login']) ){
+        header("Location: ../auth/login.php");
+        exit;
+    } 
+    
+    if($_SESSION['akun']['level'] == 'user' || $_GET['id'] == '') {
+        header("Location: ../tarif.php");
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -111,7 +125,7 @@
 			<tr>
                 <td></td>
                 <td></td>
-                <td><input class="pointer" type="submit" value="Simpan"></td>
+                <td><input class="pointer" type="submit" name="update" value="Simpan"></td>
 		    </tr>
 		
 		</table>
