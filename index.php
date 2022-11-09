@@ -74,9 +74,17 @@
             <div class="header-item-left">
                 <h1>LISTRIK BIRU</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque possimus suscipit reiciendis, dolore, ratione quos ipsa iure aspernatur cum debitis inventore tenetur saepe. Doloremque, et deserunt voluptatum sapiente nesciunt illum repudiandae? Quod aspernatur nihil eius assumenda vitae tempore repellat autem pariatur! Voluptatum fugit nesciunt reprehenderit eum voluptatibus aliquam ipsa sed.</p>
-                <a href="php/rent.php">
-                    <button class="rent-btn">Pembelian</button>
-                </a>
+                <?php if($level == 'admin') { ?>
+                    <a href="php/rent.php">
+                        <button class="rent-btn">Pembelian Admin Slebew</button>
+                    </a>
+                <?php }?>
+                <?php if($level != 'admin') { ?>
+                    <a href="pembelian/form_pembelian.php">
+                        <button class="rent-btn">Pembelian</button>
+                    </a>
+                <?php }?>
+
                 <a href="php/game.php">
                     <button class="play-btn">Tarif</button>
                 </a>
