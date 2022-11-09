@@ -4,7 +4,7 @@
     
     if(!isset($_SESSION['login'])) {
         print_r($_SESSION);
-        header('location: user/login.php');
+        header('location: auth/login.php');
         exit;
     }
     $level = $_SESSION['level'];
@@ -18,8 +18,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Title & Web Icon -->
-    <title>Pixel: Rental Ps</title>
-    <link rel="shortcut icon" href="img/background/logo-p.png">
+    <title>Listrik Biru</title>
+    <link rel="shortcut icon" href="img/logo/logo-listrik.png">
     
     <!-- Link Font -->
     <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet">
@@ -27,8 +27,8 @@
     <link href="//db.onlinewebfonts.com/c/213e56f9ea368890b9d2da0577e49dab?family=Zona+Pro" rel="stylesheet" type="text/css"/>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/style-mobile.css">
+    <link rel="stylesheet" href="stylesheet/style.css">
+    <link rel="stylesheet" href="stylesheet/style-mobile.css">
 </head>
 <body>
     <!-- HEADER -->
@@ -37,21 +37,25 @@
         <nav class="mode-bg">
             <div class="logo">
                 <a href="index.php" class="mode-text">
-                    <img src="img/qw.png" alt="">
+                    <img src="img/logo/logo-listrik.png" alt="">
                     <p>Listrik Biru</p>
                 </a>
             </div>
 
             <ul>
-                <?php if($level == 'admin') { ?>
-                    <li><a class="mode-text" href="pembelian/bacapembelian.php">Pembelian</a></li>
-                    <li><a class="mode-text" href="user/bacauser.php">Pelanggan</a></li>
-                    <li><a class="mode-text" href="tarif/bacatarif.php">Tarif</a></li>
-                <?php }?>
+                <li><a class="mode-text" href="tarif.php">Tarif</a></li>
+                <?php if($_SESSION['akun']['level'] == 'admin') { ?>
+                    <li><a class="mode-text" href="admin/transaksi.php">Transaksi</a></li>
+                    <li><a class="mode-text" href="admin/pelanggan.php">Pelanggan</a></li>
+                    <li><a class="mode-text" href="admin/daftar-pesan.php">Kontak</a></li>
+                <?php } if($_SESSION['akun']['level'] == 'user') { ?>
+                    <li><a class="mode-text" href="user/profil.php">Profil</a></li>
+                    <li><a class="mode-text" href="user/kontak.php">Kontak</a></li>
+                <?php } ?>
+                <div class="logout-btn">
+                    <a href="auth/logout.php">Logout</a>
+                </div>
             </ul>
-            <div class="logout-btn">
-                <a href="logout.php">Logout</a>
-            </div>
             <div class="dark-mode-toggle">
                 <input type="checkbox" class="checkbox" id="chk"/>
                 <label class="label" for="chk">
@@ -72,27 +76,21 @@
 
         <div class="header-container">
             <div class="header-item-left">
+                <div class="pesan-container">
+                    <?php if(isset($_GET['pesan'])) {?>
+                        <div class="pesan-sukses"> <?php echo $_GET['pesan']; ?> </div>
+                    <?php } ?>
+                </div>
                 <h1>LISTRIK BIRU</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque possimus suscipit reiciendis, dolore, ratione quos ipsa iure aspernatur cum debitis inventore tenetur saepe. Doloremque, et deserunt voluptatum sapiente nesciunt illum repudiandae? Quod aspernatur nihil eius assumenda vitae tempore repellat autem pariatur! Voluptatum fugit nesciunt reprehenderit eum voluptatibus aliquam ipsa sed.</p>
-                <?php if($level == 'admin') { ?>
-                    <a href="php/rent.php">
-                        <button class="rent-btn">Pembelian Admin Slebew</button>
-                    </a>
-                <?php }?>
-                <?php if($level != 'admin') { ?>
-                    <a href="pembelian/form_pembelian.php">
-                        <button class="rent-btn">Pembelian</button>
-                    </a>
-                <?php }?>
-
-                <a href="php/game.php">
+                <a href="user/pembelian.php">
+                    <button class="rent-btn">Pesan!</button>
+                </a>
+                <a href="tarif.php">
                     <button class="play-btn">Tarif</button>
                 </a>
-                <!-- <h4>Available Service :</h4>
-                <img src="img/service/services.png" alt=""> -->
             </div>
             <div class="header-item-right">
-                <!-- <img src="img/service/ps5-sticks.webp" class="img-gif" alt=""> -->
             </div>
         </div>
     </header>
@@ -111,35 +109,69 @@
             </div>
         </div>
 
-        <div class="partners-container mundur-dikit">
-            <h3>Our Partners</h3>
-            <div class="content-img">
-                <img src="img/partners/ovo.png" alt="">
-                <img src="img/partners/dana.png" alt="">
-                <img src="img/partners/gopay.png" alt="">
-            </div>
-        </div>
-
         <div class="service-container">
-            <h3>Our Services</h3>
+            <h3>Daftar Tarif</h3>
             <div class="service-cards">
-                <div class="card-panel mode-bg mode-text">
-                    <img src="img/service/ps-logo.png" class="mode-img" alt="">
-                    <h4>Playstation</h4>
-                    <p>PlayStation is a brand produced by Sony Interactive Entertainment. The first PlayStation console was released in Japan in December 1994, and released worldwide the following year.</p>
-                </div>
-                <div class="card-panel mode-bg mode-text">
-                    <img src="img/service/xbox-logo.png" class="mode-img" alt="">
-                    <h4>Xbox</h4>
-                    <p>Xbox is a video gaming brand created and owned by Microsoft. The brand was first introduced in the United States in November 2001, with the launch of the original Xbox console.</p>
-                </div>
+                <?php
+                    require('php/connection.php');
+                    $sql="SELECT * FROM tarif";
+                    $query= mysqli_query($conn, $sql);
+                    while ($data = mysqli_fetch_array($query)) { 
+                ?>
+                    <div class="card-panel mode-bg mode-text" onclick="window.location='tarif.php'">
+                        <div class="grid-container">
+                            <div>
+                                <img src="img/voltase/<?php echo $data['foto'] ?>"/>
+                                <p>
+                                    <?php echo "$data[id]"; ?> ||
+                                    <?php echo "$data[daya]"; ?><br>
+                                </p>
+                                <p>
+                                    Rp.<?php echo "$data[tarifperkwh]"; ?>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </section>
     <!-- END MAIN CONTENT -->
 
 
- 
+    <!-- FOOTER -->
+    <footer class="mode-bg">
+        <div class="footer-container">
+            <div class="footer-title" id="contact">
+                <h2>CONTACT US</h2>
+            </div>
+            <div class="footer-contact-item">
+                <div class="footer-item">
+                    <h4>Location</h4>
+                    <p>28 Jackson Blvd Ste 1020 Chicago<br>IL 60604-2340<br>Phone: +628 135 158 0524</p>
+                </div>
+                <div class="footer-item">
+                    <h4>Find Us On</h4>
+                    <div class="circle-container">
+                        <!-- salah satu fitur pop up box (confirm) -->
+                        <div class="circle ig">
+                            <a href="https://www.instagram.com/pixel" onclick="return confirm('You will be redirected to other website.');"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                        <div class="circle fb">
+                            <a href="https://www.facebook.com/pixel" onclick="return confirm('You will be redirected to other website.');"><i class="fa-brands fa-facebook"></i></a>
+                        </div>
+                        <div class="circle wa">
+                            <a href="https://www.whatsapp.com/pixel" onclick="return confirm('You will be redirected to other website.');"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
+                        <div class="circle tw">
+                            <a href="https://www.twitter.com/pixel" onclick="return confirm('You will be redirected to other website.');"><i class="fa-brands fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END FOOTER -->
 
     <!-- javascript -->
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
