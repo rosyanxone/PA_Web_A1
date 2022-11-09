@@ -1,11 +1,13 @@
 <?php
     session_start();
-
+    require 'koneksi.php';
+    
     if(!isset($_SESSION['login'])) {
         print_r($_SESSION);
         header('location: auth/login.php');
         exit;
     }
+    $level = $_SESSION['level'];
 ?>
 
 <!DOCTYPE html>
