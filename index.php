@@ -7,7 +7,6 @@
         header('location: auth/login.php');
         exit;
     }
-    // $level = $_SESSION['level'];
 ?>
 
 <!DOCTYPE html>
