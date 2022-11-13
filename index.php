@@ -138,7 +138,7 @@
 
 
     <!-- FOOTER -->
-    <footer class="mode-bg">
+    <footer class="mode-bg" style="position: static;">
         <div class="footer-container">
             <div class="footer-title" id="contact">
                 <h2>CONTACT US</h2>

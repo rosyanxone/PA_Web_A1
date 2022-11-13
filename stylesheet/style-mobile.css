@@ -209,8 +209,12 @@
         padding: 0 20px;
         padding-top: 20px;
     }
+    .search-input {
+        font-size: 14px;
+        width: 50%;
+    }
     .daftar-data {
-        padding: 20px;
+        padding: 0 20px;
     }
     .table-user {
         width: 100%;

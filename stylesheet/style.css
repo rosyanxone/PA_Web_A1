@@ -311,7 +311,7 @@ header {
 
 .table-user table thead {
     border-bottom: 3px solid black;
-    background-color: #EDF3F8;
+    background-color: transparent;
 }
 
 .table-user thead tr th {
@@ -320,7 +320,7 @@ header {
 
 .table-user table {
     --bs-table-bg: transparent;
-    --bs-table-accent-bg: #F7F8FA;
+    --bs-table-accent-bg: transparent;
     --bs-table-striped-color: var(#212529);
     --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
     --bs-table-hover-color: var(#212529);
@@ -450,10 +450,6 @@ header {
     height: 200px;
     margin: auto;
 }
-/* .grid-container div:hover {
-    position: absolute;
-    top: 10;
-} */
 /* END MAIN SECTION index */
 
 
@@ -475,6 +471,15 @@ header {
     margin: 5px 5px;
     text-decoration: none;
     color: white;
+}
+
+.table-user.pelanggan {
+    width: 100%;
+    overflow-x:auto;
+}
+.table-user.pelanggan th,
+.table-user.pelanggan td {
+    white-space: nowrap;
 }
 
 .del-action {
@@ -819,7 +824,7 @@ footer {
     justify-content: center;
     flex-direction: column;
     position: absolute;
-    bottom: -50;
+    bottom: 0;
 }
 
 .footer-title h2 {

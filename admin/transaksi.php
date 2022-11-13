@@ -35,9 +35,9 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../stylesheet/style.css">
-    <link rel="stylesheet" href="../stylesheet/mobile/style-mobile.css">
+    <link rel="stylesheet" href="../stylesheet/style-mobile.css">
 </head>
-<body>
+<body class="mode-bg">
     <!-- HEADER -->
     <header class="main" id="home">
         <!-- navbar -->
@@ -88,17 +88,17 @@
     <section class="minggirin-navbar">
         <div class="feature">
             <form method="GET" class="search-container">
-                <h3>Cari berdasarkan tanggal</h3>
+                <h3 class="mode-text">Cari berdasarkan tanggal</h3>
                 <input type="date" name="date-from">
-                to
+                <label class="mode-text">hingga</label>
                 <input type="date" name="date-to">
                 <button type="submit" name="searchByDate" hidden></button>
             </form>
         </div>
         <div class="daftar-data">
-            <div class="table-user hover-table">
+            <div class="table-user hover-table mode-text">
                 <table>
-                    <thead>
+                    <thead class="mode-border">
                         <tr>
                             <th>ID PEMBELIAN</th>
                             <th>ID PELANGGAN</th>
@@ -155,7 +155,7 @@
     <!-- END MAIN CONTENT -->
 
     <!-- FOOTER -->
-    <footer class="mode-bg" style="margin-top: 25px;">
+    <footer class="mode-bg" style="border-top: 1px solid white; margin-top: 25px;">
         <div class="footer-container">
             <div class="footer-title" id="contact">
                 <h2>CONTACT US</h2>
@@ -190,6 +190,7 @@
 
     <!-- javascript -->
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="../js/dark-mode.js"></script>
     <script src="../js/navbar-mobile.js"></script>
     <script src="https://kit.fontawesome.com/a374d5ed26.js" crossorigin="anonymous"></script>
 </body>
