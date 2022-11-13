@@ -11,53 +11,21 @@ input{
 	border: 1px solid blue;
 	font-weight: bold;
 	cursor: pointer;
-}
-
-body {
-    margin: auto;
-}
-
-.bekgron{
-    width: 100%;
-    overflow: hidden;
-    background: #160573;
-}
-
-.bekgron h2{
-    margin-left: 15px;
-    color: white;
-}
-
-.gambar{
-    width: 100%;
-    height: 430px;
-    margin: auto;
-    background: url(../img/kotabiru.jpg);
-    background-size: 100% 100%;
-    margin-bottom: 20px;
-}
-
-.footer{
-    width: 100%;
-    background-color: #004d82;
-    text-align: center;
-    font-size: 10pt;
-    color: white; 
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: 30px;
-}
-  
+} 
 
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto  auto auto auto;
     gap: 10px;
     padding: 10px;
 }
   
 .grid-container > div {
     text-align: center;
+}
+
+a {
+    text-decoration: none;
 }
 
 .grid-container > div p{
@@ -75,10 +43,6 @@ body {
     height: 200px;
     margin: auto;
     transition: 0.5s;
-}
-
-a {
-    text-decoration: none;
 }
 
 .grid-container > div p .edit{
@@ -113,4 +77,77 @@ a {
 
 .grid-container img {
     cursor: pointer;
+}
+
+@media (max-width: 650px) {
+    .container{
+        margin: auto;
+        width: 350px;
+    }
+    
+    input{
+        background: #ffffff;
+        padding: 10px;
+        color: rgb(0, 0, 0);
+        border-radius: 5px;
+        border: 1px solid blue;
+        font-weight: bold;
+        cursor: pointer;
+    } 
+    
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px;
+        padding: 10px;
+    }
+      
+    .grid-container > div {
+        text-align: center;
+    }
+    
+    .grid-container > div img{
+        width: 150px;
+        height: 200px;
+        margin: auto;
+        transition: 0.5s;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    .grid-container > div p .edit{
+        background: #1886e4;
+        line-height: 3;
+        padding: 5px;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .grid-container > div p .hapus{
+        background: #d41010;
+        line-height: 3;
+        padding: 5px;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .add-card {
+        position: static;
+        margin-left: 7px;
+    }
+    
+    .add-img {
+        position: absolute;
+    }
+    
+    .add-card img:hover {
+        cursor: pointer;
+        height: 210px;
+    }
+    
+    .grid-container img {
+        cursor: pointer;
+    }
 }

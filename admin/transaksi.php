@@ -35,7 +35,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../stylesheet/style.css">
-    <link rel="stylesheet" href="../stylesheet/style-mobile.css">
+    <link rel="stylesheet" href="../stylesheet/mobile/style-mobile.css">
 </head>
 <body>
     <!-- HEADER -->
