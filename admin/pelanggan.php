@@ -87,9 +87,9 @@
     <!-- MAIN CONTENT -->
     <section class="minggirin-navbar">
         <div class="feature">
-            <form method="GET" class="search-container">
-                <input type="text" name="keyword" id="keyword" class="search-input fas fa-search" placeholder="&#xF002; Cari pelanggan">
-                <button type="submit" name="search" hidden></button>
+            <form method="GET" class="search-container cari-nama">
+                <input type="text" name="keyword" id="keyword" class="search-input" placeholder="Cari Pelanggan">
+                <button type="submit" name="search" class="btn-search search"><i class="fas fa-search"></i></button>
             </form>
         </div>
         <div class="daftar-data">

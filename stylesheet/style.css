@@ -454,10 +454,15 @@ header {
 
 
 /* MAIN CONTENT pelanggan */
+.search-container.cari-nama {
+    display: flex;
+}
+
 .search-input {
-    width: 30%;
+    width: 20%;
     padding: 5px;
     font-size: 20px;
+    margin-right: 5px;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -465,6 +470,22 @@ header {
     border-radius: 4px;
     border: 2px solid #A6C0E1;
 }
+
+button.search {
+    padding: 11px 15px;
+    background-color: #A6C0E1;
+    border: 0;
+    border-radius: 3px;
+    color: black;
+    transition: 0.5s;
+}
+
+button.search:hover {
+    cursor: pointer;
+    color: white;
+    transition: 0.5s;
+}
+
 .btn-action {
     padding: 5px;
     border-radius: 6px;
