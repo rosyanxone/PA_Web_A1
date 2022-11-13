@@ -441,23 +441,6 @@ header {
     height: 200px;
     margin: auto;
 }
-
-.grid-container > div p .edit{
-    background: #1886e4;
-    line-height: 3;
-    padding: 5px;
-    color: white;
-    font-weight: bold;
-}
-
-.grid-container > div p .hapus{
-    background: #d41010;
-    line-height: 3;
-    padding: 5px;
-    color: white;
-    font-weight: bold;
-}
-
 /* .grid-container div:hover {
     position: absolute;
     top: 10;
