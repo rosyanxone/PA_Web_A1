@@ -27,7 +27,7 @@
 <body>
     <div class="mainPembelian">
         <div class="bungkus1">
-            <form class="formPembelian" action="aksi/create_pembelian.php" method="POST">
+            <form class="" action="aksi/create_pembelian.php" method="POST">
                 <h3    class="judul">Pembelian</h3>
                 <label class="ket">TANGGAL PEMBELIAN</label>
                 <input class="tglPembelian"    type="text"  name="tanggal" id="tanggal" value="<?php date_default_timezone_set("Asia/Makassar"); echo date("D, d M Y"); ?>" readonly>
@@ -58,7 +58,6 @@
 
             <div class="bungkus2">
                 <h3 class="judul" \>Informasi Tarif</h3>
-
                 <div class="infoTarif">
                     <div class="boxTarif">
                     <?php

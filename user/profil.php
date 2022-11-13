@@ -111,13 +111,13 @@
         <?php 
             $read = mysqli_query($conn, "SELECT * FROM transaksi WHERE iduser = '$id_user'");
 
-            // if(mysqli_num_rows($read) > 0){
+            if(mysqli_num_rows($read) > 0){
         ?>
         <div class="daftar-data">
+            <div class="feature-del-transaksi">
+                <a href="aksi/delete_history.php" class="btn-action erase-btn">Hapus Riwayat Transaksi</a>
+            </div>
             <div class="table-user hover-table">
-                <div class="feature">
-                    <a href="aksi/delete_history.php" class="btn-action erase-btn">Hapus Riwayat Transaksi</a>
-                </div>
                 <table>
                     <thead>
                         <tr>
@@ -144,17 +144,48 @@
                 </table>
             </div>
         </div>
+        <?php } ?>
         <!-- End Riwayat Transaksi -->
     </section>
     <!-- END PROFIL CONTENT -->
     
-
     <!-- FOOTER -->
+    <footer class="mode-bg" style="margin-top: 25px;">
+        <div class="footer-container">
+            <div class="footer-title" id="contact">
+                <h2>CONTACT US</h2>
+            </div>
+            <div class="footer-contact-item">
+                <div class="footer-item">
+                    <h4>Location</h4>
+                    <p>28 Jackson Blvd Ste 1020 Chicago<br>IL 60604-2340<br>Phone: +628 135 158 0524</p>
+                </div>
+                <div class="footer-item">
+                    <h4>Find Us On</h4>
+                    <div class="circle-container">
+                        <!-- salah satu fitur pop up box (confirm) -->
+                        <div class="circle ig">
+                            <a href="https://www.instagram.com/pixel" onclick="return confirm('You will be redirected to other website.');"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                        <div class="circle fb">
+                            <a href="https://www.facebook.com/pixel" onclick="return confirm('You will be redirected to other website.');"><i class="fa-brands fa-facebook"></i></a>
+                        </div>
+                        <div class="circle wa">
+                            <a href="https://www.whatsapp.com/pixel" onclick="return confirm('You will be redirected to other website.');"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
+                        <div class="circle tw">
+                            <a href="https://www.twitter.com/pixel" onclick="return confirm('You will be redirected to other website.');"><i class="fa-brands fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     <!-- END FOOTER -->
 
     <!-- javascript -->
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-    <script src="js/navbar-mobile.js"></script>
+    <script src="../js/navbar-mobile.js"></script>
     <script src="https://kit.fontawesome.com/a374d5ed26.js" crossorigin="anonymous"></script>
 </body>
 </html>

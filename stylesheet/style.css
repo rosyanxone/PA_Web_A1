@@ -31,9 +31,13 @@ body {
 	justify-content: space-between;
 	padding: 5px;
 	position: relative;
-	height: 26px;
-	width: 50px;
+	height: 18px;
+	width: 35px;
 	transform: scale(1.5);
+}
+
+.label i {
+    font-size: 12px;
 }
 
 .label .ball {
@@ -42,14 +46,18 @@ body {
 	position: absolute;
 	top: 2px;
 	left: 2px;
-	height: 22px;
-	width: 22px;
+	height: 14px;
+	width: 14px;
 	transform: translateX(0px);
 	transition: transform 0.2s linear;
 }
 
 .checkbox:checked + .label .ball {
-	transform: translateX(24px);
+	transform: translateX(15px);
+}
+
+.checkbox:checked + .label {
+	background-color: #aeaeae;
 }
 
 .fa-moon {
@@ -127,18 +135,20 @@ nav ul li a:hover {
 }
 
 .logout-btn a {
+    font-size: 12px;
     display: block;
-    color: white;
     text-decoration: none;
-    background-color: #0170CD;
     padding: 8px 10px;
+    color: #0170CD;
+    border: 1px solid #0170CD;
     border-radius: 7px;
-    transition: 0.8s;
+    transition: 0.2s;
 }
 
 .logout-btn a:hover {
-    background-color: rgb(70, 34, 228);
-    transition: 0.8s;
+    transition: 0.2s;
+    color: red;
+    border: 1px solid red;
 }
 
 .logo a {
@@ -287,10 +297,9 @@ header {
     color: black;
 }
 
-
 /* TABLE */
 .daftar-data {
-    padding: 70px;
+    padding: 0 70px;
 }
 
 .table-user table {
@@ -524,6 +533,7 @@ section#profil {
 
 .udata-right img {
     height: 124px;
+    width: 124px;
     border-radius: 4px;
 }
 
@@ -588,6 +598,16 @@ section#profil {
 }
 /* End Riwayat Transaksi */
 /* END PROFIL CONTENT */
+
+/* FEATURE */
+.feature {
+    padding: 0 70px;
+    padding-top: 20px;
+}
+.feature-del-transaksi {
+    padding: 0;
+}
+/* END FEATURE */
 
 
 /* LOGIN */

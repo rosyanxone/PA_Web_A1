@@ -57,7 +57,7 @@
                     <li><a class="mode-text" href="daftar-pesan.php">Kontak</a></li>
                 <?php } if($_SESSION['akun']['level'] == 'user') { ?>
                     <li><a class="mode-text" href="../user/profil.php">Profil</a></li>
-                    <!-- -1 -->
+                    <li><a class="mode-text" href="user/kontak.php">Kontak</a></li>
                 <?php } ?>
                 <div class="logout-btn">
                     <a href="../auth/logout.php">Logout</a>
@@ -86,17 +86,17 @@
 
     <!-- MAIN CONTENT -->
     <section class="minggirin-navbar">
+        <div class="feature">
+            <form method="GET" class="search-container">
+                <h3>Cari berdasarkan tanggal</h3>
+                <input type="date" name="date-from">
+                to
+                <input type="date" name="date-to">
+                <button type="submit" name="searchByDate" hidden></button>
+            </form>
+        </div>
         <div class="daftar-data">
             <div class="table-user hover-table">
-                <div class="feature">
-                    <form method="GET" class="search-container">
-                        <h3>Cari berdasarkan tanggal</h3>
-                        <input type="date" name="date-from">
-                        to
-                        <input type="date" name="date-to">
-                        <button type="submit" name="searchByDate" hidden></button>
-                    </form>
-                </div>
                 <table>
                     <thead>
                         <tr>
@@ -153,14 +153,44 @@
         </div>
     </section>
     <!-- END MAIN CONTENT -->
-    
 
     <!-- FOOTER -->
+    <footer class="mode-bg" style="margin-top: 25px;">
+        <div class="footer-container">
+            <div class="footer-title" id="contact">
+                <h2>CONTACT US</h2>
+            </div>
+            <div class="footer-contact-item">
+                <div class="footer-item">
+                    <h4>Location</h4>
+                    <p>28 Jackson Blvd Ste 1020 Chicago<br>IL 60604-2340<br>Phone: +628 135 158 0524</p>
+                </div>
+                <div class="footer-item">
+                    <h4>Find Us On</h4>
+                    <div class="circle-container">
+                        <!-- salah satu fitur pop up box (confirm) -->
+                        <div class="circle ig">
+                            <a href="https://www.instagram.com/listrik-biru" onclick="return confirm('You will be redirected to other website.');"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                        <div class="circle fb">
+                            <a href="https://www.facebook.com/listrik-biru" onclick="return confirm('You will be redirected to other website.');"><i class="fa-brands fa-facebook"></i></a>
+                        </div>
+                        <div class="circle wa">
+                            <a href="https://www.whatsapp.com/listrik-biru" onclick="return confirm('You will be redirected to other website.');"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
+                        <div class="circle tw">
+                            <a href="https://www.twitter.com/listrik-biru" onclick="return confirm('You will be redirected to other website.');"><i class="fa-brands fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     <!-- END FOOTER -->
 
     <!-- javascript -->
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-    <script src="js/navbar-mobile.js"></script>
+    <script src="../js/navbar-mobile.js"></script>
     <script src="https://kit.fontawesome.com/a374d5ed26.js" crossorigin="anonymous"></script>
 </body>
 </html>

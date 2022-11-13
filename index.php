@@ -1,7 +1,6 @@
 <?php
     session_start();
-    require 'php/connection.php';
-    
+
     if(!isset($_SESSION['login'])) {
         print_r($_SESSION);
         header('location: auth/login.php');
@@ -154,16 +153,16 @@
                     <div class="circle-container">
                         <!-- salah satu fitur pop up box (confirm) -->
                         <div class="circle ig">
-                            <a href="https://www.instagram.com/pixel" onclick="return confirm('You will be redirected to other website.');"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.instagram.com/listrik-biru" onclick="return confirm('You will be redirected to other website.');"><i class="fa-brands fa-instagram"></i></a>
                         </div>
                         <div class="circle fb">
-                            <a href="https://www.facebook.com/pixel" onclick="return confirm('You will be redirected to other website.');"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://www.facebook.com/listrik-biru" onclick="return confirm('You will be redirected to other website.');"><i class="fa-brands fa-facebook"></i></a>
                         </div>
                         <div class="circle wa">
-                            <a href="https://www.whatsapp.com/pixel" onclick="return confirm('You will be redirected to other website.');"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="https://www.whatsapp.com/listrik-biru" onclick="return confirm('You will be redirected to other website.');"><i class="fa-brands fa-whatsapp"></i></a>
                         </div>
                         <div class="circle tw">
-                            <a href="https://www.twitter.com/pixel" onclick="return confirm('You will be redirected to other website.');"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="https://www.twitter.com/listrik-biru" onclick="return confirm('You will be redirected to other website.');"><i class="fa-brands fa-twitter"></i></a>
                         </div>
                     </div>
                 </div>

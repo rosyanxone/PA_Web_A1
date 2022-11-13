@@ -102,6 +102,12 @@
         opacity: 1;
         transform: translateX(0);
     }
+    
+    .logout-btn a {
+        transition: 0.2s;
+        color: red;
+        border: 1px solid red;
+    }
 
     /* HEADER */
     .header-container {
@@ -197,4 +203,28 @@
         align-items: flex-start;
         padding: 0 30px;
     }
+
+    /* DAFTAR TABLE */
+    .feature {
+        padding: 0 20px;
+        padding-top: 20px;
+    }
+    .daftar-data {
+        padding: 20px;
+    }
+    .table-user {
+        width: 100%;
+        overflow-x:auto;
+    }
+    .table-user th,
+    .table-user td {
+        white-space: nowrap;
+    }
+    /* END DAFTAR TABLE */
+
+    /* PROFIL */
+    .udata-left h2 {
+        font-size: 16px;
+    }
+    /* END PROFIL */
 }
