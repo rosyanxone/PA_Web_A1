@@ -150,7 +150,7 @@
     <!-- END PROFIL CONTENT -->
     
     <!-- FOOTER -->
-    <footer class="mode-bg" style="border-top: 1px solid white; margin-top: 25px;" id="profil">
+    <footer class="mode-bg" style="border-top: 1px solid white; margin-top: 25px; position: static;" id="profil">
         <div class="footer-container">
             <div class="footer-title" id="contact">
                 <h2>CONTACT US</h2>

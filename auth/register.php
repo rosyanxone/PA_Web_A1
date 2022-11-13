@@ -92,8 +92,8 @@
                 <input type="text" name="username" id="username" class="namaDaftar"  align="center" placeholder="Username" required>
                 <input type="password" name="password" id="password" class="passDaftar"  align="center" placeholder="Password" required>
                 <input type="password" name="confirm-password" id="confirm-password" class="passDaftar" align="center" placeholder="Konfirmasi Password" required>
-                <button align="center" onclick="onLoad('group1', 'group2')">Kembali</button>
-                <button align="center" type="submit" style="margin-top: 10px;" name="register">Daftar !!</button>
+                <button align="center" type="submit" style="margin-top: 10px; margin-left: 35%;" name="register">Daftar !!</button>
+                <p class="kembali" align="center" ><a href="#" onclick="onLoad('group1', 'group2')">Kembali</a></p>
             </div>
             <p      class="loginDaftar" align="center"><a href="login.php">Login?</p>
         </form>
