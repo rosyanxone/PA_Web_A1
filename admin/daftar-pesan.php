@@ -83,6 +83,9 @@
     <!-- MAIN CONTENT -->
     <section class="minggirin-navbar">
         <div class="daftar-data">
+            <?php if(isset($_GET['pesan'])) { ?>
+                <p class="success-message" style="margin-top: 5px;"><?php echo $_GET['pesan']; ?></p>
+            <?php } ?> 
             <div class="table-user hover-table mode-text">
                 <table>
                     <thead class="mode-border">

@@ -75,7 +75,7 @@
             $query = mysqli_query($conn,$sql2);
             
             if($query) {
-                header('location: ../pelanggan.php');
+                header('location: ../pelanggan.php?pesan=Data berhasil diubah!');
             } else {
                 echo"Edit Pelanggan Gagal";
             }

@@ -40,10 +40,10 @@
                 <input class="tglPembelian"    type="text"  name="tanggal" id="tanggal" value="<?php date_default_timezone_set("Asia/Makassar"); echo date("D, d M Y"); ?>" readonly>
     
                 <label class="ket">JUMLAH PEMBELIAN</label>
-                <input class="jumlahPembelian" name="jumlahbeli" id="jumlahbeli" type="number" >
+                <input class="jumlahPembelian" name="jumlahbeli" id="jumlahbeli" type="number"  required>
     
                 <label class="ket">NOMOR METER</label>
-                <input class="nomorMeter"      name="nometer" id="nometer" type="number" >
+                <input class="nomorMeter"      name="nometer" id="nometer" type="number"  required>
     
                 <label  class ="ket">PILIH ID TARIF</label>
                 <select class = "idTarif" name="idtarif" id="idtarif">

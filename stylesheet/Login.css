@@ -24,6 +24,16 @@ body{
     font-size: 23px;
 }
 
+.success-message {
+    padding: 5px;
+    background-color: #E8F2EF;
+    border-radius: 4px;
+    color: #198795;
+    border: 1px solid #D3E8DE;
+    position: absolute;
+    margin: -10px auto;
+}
+
 .userNameLogin, .passLogin{
     width: 76%;
     color: rgb(38, 50, 56);

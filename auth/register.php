@@ -41,7 +41,7 @@
                 
                 if(mysqli_affected_rows($conn) > 0) {
                     echo '<script>
-                        document.location.href = "login.php?pesan=Berhasil Daftar!";
+                        document.location.href = "login.php?pesan=Akun berhasil didaftarkan!";
                     </script>';
                 } else {
                     echo '<script>

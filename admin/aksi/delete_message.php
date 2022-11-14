@@ -19,14 +19,13 @@
         if($query){
             ?>
                 <script>
-                    alert("Data berhasil dihapus!");
-                    window.location='../daftar-pesan.php';
+                    window.location='../daftar-pesan.php?pesan=Data berhasil dihapus!';
                 </script>
             <?php
         }else {
             ?>
                 <script>
-                    alert("Data gagal dihapus!");
+                    alert("Data gagal dihapus");
                 </script>
             <?php
         }

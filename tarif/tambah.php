@@ -34,17 +34,14 @@
     <div class="mainTarif">
         <p    class="tarif" align="center">Tambah Tarif</p>
         <form class="formTarif" action="aksi/create.php" method="POST" enctype="multipart/form-data">
-            <!-- <label class="ket">ID TARIF</label>
-            <input class="idTarif"    type="text" name="id" id="id" align="center"> -->
-
             <label class="ket">GAMBAR</label>
-            <input class="idTarif"    type="file" name="foto" id="foto" accept=".jpg, .jpeg, .png, .gif" align="center">
+            <input class="idTarif"    type="file" name="foto" id="foto" accept=".jpg, .jpeg, .png, .gif" align="center" required>
 
             <label class="ket">DAYA</label>
-            <input class="dayaTarif"  type="number" name="daya" id="daya" align="center">
+            <input class="dayaTarif"  type="number" name="daya" id="daya" align="center" required>
 
             <label class="ket">TARIF/kWH</label>
-            <input class="hargaTarif" type="text" name="tarifperkwh" id="tarifperkwh" align="center">
+            <input class="hargaTarif" type="number" name="tarifperkwh" id="tarifperkwh" align="center" required>
 
             <button align="center" type="submit" name="create">Simpan</button>
             <p      class="kembali" align="center"><a href="../tarif.php">Kembali</p>    

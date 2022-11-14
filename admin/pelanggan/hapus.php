@@ -15,7 +15,7 @@
 		$sql = "DELETE FROM user WHERE id = '$id'";
 		$query = mysqli_query($conn, $sql);
 		if($query) {
-			header('location: ../pelanggan.php');
+			header('location: ../pelanggan.php?pesan=Data berhasil dihapus!');
 		} else {
 			echo "hapus pelanggan GAGAL";
 		}
