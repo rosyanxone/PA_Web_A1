@@ -160,7 +160,7 @@
     
 
     <!-- FOOTER -->
-    <footer class="mode-bg" style="border-top: 1px solid white; margin-top: 25px;">
+    <footer class="mode-bg" style="border-top: 1px solid white; margin-top: 225px; position: static;">
         <div class="footer-container">
             <div class="footer-title" id="contact">
                 <h2>CONTACT US</h2>

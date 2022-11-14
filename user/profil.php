@@ -125,6 +125,7 @@
                             <th>TANGGAL</th>
                             <th>NOMINAL</th>
                             <th>NO METER</th>
+                            <th>NO TOKEN</th>
                             <th>TOTAL KWH</th>
                             <th>TARIF</th>
                         </tr>
@@ -136,6 +137,7 @@
                                     <td><?php echo $row['tanggal']?></td>
                                     <td><?php echo $row['nominal']?></td>
                                     <td><?php echo $row['nometer']?></td>
+                                    <td><?php echo $row['token']?></td>
                                     <td><?php echo $row['totalkwh']?></td>
                                     <td><?php echo $row['idtarif']?></td>
                                 </tr>

@@ -41,7 +41,6 @@
                 
                 if(mysqli_affected_rows($conn) > 0) {
                     echo '<script>
-                        alert("Registrasi berhasil");
                         document.location.href = "login.php?pesan=Berhasil Daftar!";
                     </script>';
                 } else {

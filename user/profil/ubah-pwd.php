@@ -60,16 +60,17 @@
             $confirmPwd=$_POST['confirm-password'];
             
             if($password === $confirmPwd) {
+                $password = password_hash($password, PASSWORD_DEFAULT);
                 $sql2 ="UPDATE user SET password = '$password' WHERE id = '$id'";
-                $query = mysqli_query($conn,$sql2);
+                $query = mysqli_query($conn, $sql2);
                 
                 if($query) {
                     header('location: ../profil.php');
                 } else {
-                    echo"Edit Pelanggan Gagal";
+                    echo"Ubah password Gagal";
                 }
             } else {
-                // error
+                echo"Password tidak sesuai";
             }
         }   
     ?>

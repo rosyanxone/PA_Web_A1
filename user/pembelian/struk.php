@@ -13,6 +13,7 @@
 		$idUser = $_POST['iduser'];
 		$rand4 = RandomString(4);
 		$id = $idUser.'-'.$rand4;
+        $token = RandomString(4, $num).'-'.RandomString(4, $num).'-'.RandomString(4, $num).'-'.RandomString(4, $num);
 	
 		$tanggal=$_POST['tanggal'];
 		$nometer=$_POST['nometer'];
@@ -24,7 +25,7 @@
 		$hasil = mysqli_fetch_assoc($result);
 		$totalkwh = round($jumlahbeli / $hasil['tarifperkwh'], 2);
 	
-		$sql = "INSERT INTO transaksi (id, iduser, tanggal, nominal, nometer, totalkwh, idtarif) VALUES('$id', '$idUser', '$tanggal','$jumlahbeli','$nometer','$totalkwh','$idtarif')";
+		$sql = "INSERT INTO transaksi (id, iduser, tanggal, nominal, nometer, token, totalkwh, idtarif) VALUES('$id', '$idUser', '$tanggal','$jumlahbeli','$nometer', '$token', '$totalkwh','$idtarif')";
 		$query = mysqli_query($conn,$sql);
 
 		if ($query)  {
@@ -106,6 +107,7 @@
             <p id="status" class="hide copy-status">Copied!</p>
             <input type="text" id="text-1" value="<?php echo $randcode ?>" style="width: 50%;" readonly/>
             <button onclick="copy('text-1')">Copy Text</button>
+            <p style="font-size: 10px;"><em style='color: red;'>&#x2a;</em> Token listrik dapat anda cek pada halaman profil secara berkala.</p>
         </div>
         <a align="center" class="btn-lanjutkan" href="../../index.php">Lanjutkan</a>
     </div>

@@ -12,8 +12,9 @@
         $email = $_POST['email'];
         $nohp = $_POST['nohp'];
         $pesan = $_POST['pesan'];
+        $iduser = $_SESSION['akun']['id'];
 
-        $sql = "INSERT INTO kontak (nama, email, nohp, pesan) VALUES ('$nama', '$email', '$nohp', '$pesan')";
+        $sql = "INSERT INTO kontak (nama, email, nohp, pesan, iduser) VALUES ('$nama', '$email', '$nohp', '$pesan', '$iduser')";
         $push_data = mysqli_query($conn, $sql);
 
         if(mysqli_affected_rows($conn) > 0) {

@@ -11,5 +11,3 @@
 
     $str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $num = '0123456789';
-    // $randstring = RandomString(12);
-    // echo $randstring;

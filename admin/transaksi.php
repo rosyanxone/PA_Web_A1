@@ -96,6 +96,9 @@
             </form>
         </div>
         <div class="daftar-data">
+            <?php if(isset($_GET['pesan'])) { ?>
+                <p class="success-message" style="margin-top: 5px;"><?php echo $_GET['pesan']; ?></p>
+            <?php } ?> 
             <div class="table-user hover-table mode-text">
                 <table>
                     <thead class="mode-border">
@@ -104,7 +107,7 @@
                             <th>ID PELANGGAN</th>
                             <th>TANGGAL PEMBELIAN</th>
                             <th>JUMLAH BELI</th>
-                            <!-- <th>NOMOR METER</th> -->
+                            <th>NOMOR TOKEN</th>
                             <th>TOTAL KWH</th>
                             <th>ID TARIF</th>
                             <th>AKSI</th>
@@ -131,7 +134,8 @@
                                     <td><?php echo $row['id']?></td>
                                     <td><?php echo $row['iduser']?></td>
                                     <td><?php echo $row['tanggal']?></td>
-                                    <td><?php echo $row['nominal']?></td>
+                                    <td>Rp.<?php echo $row['nominal']?></td>
+                                    <td><?php echo $row['token']?></td>
                                     <td><?php echo $row['totalkwh']?></td>
                                     <td><?php echo $row['idtarif']?></td>
                                     <td>
@@ -144,7 +148,7 @@
                                 </tr>
                         <?php }} else { ?>
                             <tr>
-                                <td colspan="7" align="center">-- data tidak ditemukan --</td>
+                                <td colspan="8" align="center">-- data tidak ditemukan --</td>
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -155,7 +159,7 @@
     <!-- END MAIN CONTENT -->
 
     <!-- FOOTER -->
-    <footer class="mode-bg" style="border-top: 1px solid white; margin-top: 25px;">
+    <footer class="mode-bg" style="border-top: 1px solid white; margin-top: 225px; position: static;">
         <div class="footer-container">
             <div class="footer-title" id="contact">
                 <h2>CONTACT US</h2>
@@ -168,7 +172,6 @@
                 <div class="footer-item">
                     <h4>Find Us On</h4>
                     <div class="circle-container">
-                        <!-- salah satu fitur pop up box (confirm) -->
                         <div class="circle ig">
                             <a href="https://www.instagram.com/listrik-biru" onclick="return confirm('You will be redirected to other website.');"><i class="fa-brands fa-instagram"></i></a>
                         </div>

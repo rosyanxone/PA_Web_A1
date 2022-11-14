@@ -44,9 +44,6 @@
             <label class="ket">USERNAME</label>
             <input class="usernamePengguna"  type="text" name="username" id="username" value="<?php echo $data['username'] ?>" align="center">
 
-            <label class="ket">PASSWORD</label>
-            <input class="passPengguna" name="password" id="password" value="<?php echo $data['password'] ?>" readonly align="center">
-
             <label class="ket">NAMA PELANGGAN</label>
             <input class="namaPelanggan" type="text" name="nama" id="nama" value="<?php echo $data['nama'] ?>" align="center">
 
@@ -63,17 +60,18 @@
     <?php
         if(isset($_POST['update']))  {
             $username=$_POST['username'];
-            $password=$_POST['password'];
             $nama=$_POST['nama'];
+            $telepon=$_POST['telepon'];
+            $alamat=$_POST['alamat'];
             
-            $sql2 ="UPDATE user SET username = '$username' , password = '$password' , nama = '$nama' WHERE id = '$id'";
+            $sql2 ="UPDATE user SET username = '$username', nama = '$nama', telepon = '$telepon', alamat = '$alamat' WHERE id = '$id'";
             
             $query = mysqli_query($conn,$sql2);
             
             if($query) {
                 header('location: ../profil.php');
             } else {
-                echo"Edit Pelanggan Gagal";
+                echo "Edit Pelanggan Gagal";
             }
         }   
     ?>
