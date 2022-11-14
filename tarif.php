@@ -112,8 +112,8 @@
     <!-- END TARIF CONTENT -->
     
     <!-- FOOTER -->
-    <div style="border: 1px solid white; margin-top: 25px;"></div>
-    <footer class="mode-bg" style="position: static;">
+    <div style="border: 1px solid white; margin-top: 225px;"></div>
+    <footer class="mode-bg" style="position: static">
         <div class="footer-container">
             <div class="footer-title" id="contact">
                 <h2>CONTACT US</h2>
