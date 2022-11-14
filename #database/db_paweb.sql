@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2022 at 12:56 PM
+-- Generation Time: Nov 14, 2022 at 04:57 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -32,28 +32,16 @@ CREATE TABLE `kontak` (
   `nama` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `nohp` varchar(255) NOT NULL,
-  `pesan` text NOT NULL
+  `pesan` text NOT NULL,
+  `iduser` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `kontak`
 --
 
-INSERT INTO `kontak` (`id`, `nama`, `email`, `nohp`, `pesan`) VALUES
-(1, 'Rosyan', 'rosyan@gmail.com', '1233334', 'afefaefaefa'),
-(2, 'Rausyan', 'rausyanfikrkarmayoga@gmail.com', '081351580524', 'afaefaef'),
-(3, 'Asep', 'vannyputriandrini@gmail.com', '081351580524', 'afaefeafaefef'),
-(4, 'Asep', 'vannyputriandrini@gmail.com', '081351580524', 'afaefeafaefef'),
-(5, 'Asep', 'vannyputriandrini@gmail.com', '081351580524', 'afaefeafaefef'),
-(12, 'Rausyanfikr Adi Karmayoga', 'rausyanfikrkarmayoga@gmail.com', '081351580524', 'ABCDeed'),
-(13, 'Rausyanfikr Adi Karmayoga', 'rausyanfikrkarmayoga@gmail.com', '081351580524', 'ABCDeed'),
-(14, 'Rausyanfikr Adi Karmayoga', 'rausyanfikrkarmayoga@gmail.com', '081351580524', 'ABCDeed'),
-(15, 'Rausyanfikr Adi Karmayoga', 'rausyanfikrkarmayoga@gmail.com', '081351580524', 'ABCDeed'),
-(16, 'Rausyanfikr Adi Karmayoga', 'rausyanfikrkarmayoga@gmail.com', '081351580524', 'ABCDeed'),
-(17, 'Rausyanfikr Adi Karmayoga', 'rausyanfikrkarmayoga@gmail.com', '081351580524', 'ABCDeed'),
-(18, 'Rausyanfikr Adi Karmayoga', 'rausyanfikrkarmayoga@gmail.com', '081351580524', 'ABCDeed'),
-(19, 'Rausyanfikr Adi Karmayoga', 'rausyanfikrkarmayoga@gmail.com', '081351580524', 'ABCDeed'),
-(20, 'Rausyanfikr Adi Karmayoga', 'rausyanfikrkarmayoga@gmail.com', '081351580524', 'ABCDeed');
+INSERT INTO `kontak` (`id`, `nama`, `email`, `nohp`, `pesan`, `iduser`) VALUES
+(21, 'Rausyanfikr Adi Karmayoga', 'rausyanfikrkarmayoga@gmail.com', '081351580524', 'Websitenya Keren.', 'userT2OF');
 
 -- --------------------------------------------------------
 
@@ -73,10 +61,11 @@ CREATE TABLE `tarif` (
 --
 
 INSERT INTO `tarif` (`id`, `foto`, `daya`, `tarifperkwh`) VALUES
-('TR/8Q-F2', '5.png', '3500VA', '1444'),
-('TR/SD-F9', '3.png', '1300VA', '1444'),
+('TR/8Q-F2', '5.png', '3500VA', '1656'),
+('TR/92-F3', '4.png', '2200VA', '1500'),
+('TR/B4-F9', '3.png', '1300VA', '1444'),
 ('TR/U1-F9', '2.png', '900VA', '1352'),
-('TR/YY-F9', '1.png', '450VA', '1200');
+('TR/VF-F9', '1.png', '450VA', '1500');
 
 -- --------------------------------------------------------
 
@@ -87,9 +76,10 @@ INSERT INTO `tarif` (`id`, `foto`, `daya`, `tarifperkwh`) VALUES
 CREATE TABLE `transaksi` (
   `id` varchar(15) NOT NULL,
   `iduser` varchar(10) NOT NULL,
-  `tanggal` date NOT NULL,
+  `tanggal` varchar(16) NOT NULL,
   `nominal` varchar(255) NOT NULL,
   `nometer` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
   `totalkwh` float NOT NULL,
   `idtarif` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -98,8 +88,12 @@ CREATE TABLE `transaksi` (
 -- Dumping data for table `transaksi`
 --
 
-INSERT INTO `transaksi` (`id`, `iduser`, `tanggal`, `nominal`, `nometer`, `totalkwh`, `idtarif`) VALUES
-('userT2OF-PHJE0', 'userT2OF', '2022-11-17', '170000', '567234421', 95.67, 'TR/YY-F9');
+INSERT INTO `transaksi` (`id`, `iduser`, `tanggal`, `nominal`, `nometer`, `token`, `totalkwh`, `idtarif`) VALUES
+('userOIVW-HL73', 'userOIVW', 'Mon, 14 Nov 2022', '300000', '39183913121', '6171-4632-8768-7945', 221.89, 'TR/U1-F9'),
+('userOIVW-KMAD', 'userOIVW', 'Mon, 14 Nov 2022', '100000', '9218390481', '1790-4225-1458-7740', 69.25, 'TR/B4-F9'),
+('userT2OF-4BI3', 'userT2OF', 'Mon, 14 Nov 2022', '200000', '49582904', '2341-2278-9841-1761', 138.5, 'TR/B4-F9'),
+('userT2OF-LOLN', 'userT2OF', 'Mon, 14 Nov 2022', '150000', '93893891', '2642-2642-2642-2642', 103.88, 'TR/B4-F9'),
+('userZ7JU-O2G6', 'userZ7JU', 'Mon, 14 Nov 2022', '400000', '923813901', '9972-0586-4111-3241', 277.01, 'TR/B4-F9');
 
 -- --------------------------------------------------------
 
@@ -124,9 +118,10 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `password`, `nama`, `telepon`, `alamat`, `foto`, `level`) VALUES
 ('user7NLP', 'admin', '$2y$10$NZ7cKFbi02wsRqweFHmpyuHPHAvV1hPgzlgy5IferkQ8C2rndIh7C', 'admin', '08123456789', 'alamat', '', 'admin'),
-('userC8U2', 'udin', '$2y$10$WKT18TIrEZ1mKD6AK88RK.pfGy9zviUcj/jjmP/XC6FD2RVWxqT7K', 'Sarifudin', '081919911', 'Jl. Cepmek Km Nanya', 'udin-C8U2.png', 'user'),
-('userT2OF', 'rosyan', '$2y$10$knaBTcpVb7rm8N/Bpg4uxe1uKJWdq4dIeMDAkpsJHBa7XInWKzHW.', 'Rausyanfikr Adi Karmayoga', '081351580524', 'Jl. Abdul W', 'default-pic.jpg', 'user'),
-('userU2G5', 'joko', '$2y$10$Y2ILzdCZd8SxfD24L1gt4OMuEWVT4LqDEDLn/oyePiFfAeN6hlOgm', 'Joko Anwar', '1111111', 'alamat', 'default-pic.jpg', 'user');
+('userOIVW', 'gilang', '$2y$10$ZigGEqRlIxny/33.IgMd2ODc1V8qNe2aiDVbmGgfbCvQn297yxSwG', 'Gilang Ahmad', '0891919123', 'Jl Antasari No. 3', 'gilang-OIVW.jpg', 'user'),
+('userT2OF', 'rosyan', '$2y$10$8G7o9HNytjL9NeZPW8PW9OSkYyE7.BtnzF1RxkGI5jlUgPhOJNJga', 'Rausyanfikr Adi Karmayoga', '0813515805245', 'Jl. Abdul W Gg 555', 'default-pic.jpg', 'user'),
+('userU2G5', 'joko', '$2y$10$Y2ILzdCZd8SxfD24L1gt4OMuEWVT4LqDEDLn/oyePiFfAeN6hlOgm', 'Joko Anwar', '1111111', 'alamat', 'default-pic.jpg', 'user'),
+('userZ7JU', 'asep', '$2y$10$QNGBWdWpOSAZ9m94lsKthueOrNTMMWZ3Pc0/PDORK1e2e60dxJc82', 'Asep', '2221123', 'Jl. Anggur Apel', 'asep-Z7JU.JPG', 'user');
 
 --
 -- Indexes for dumped tables
@@ -136,7 +131,9 @@ INSERT INTO `user` (`id`, `username`, `password`, `nama`, `telepon`, `alamat`, `
 -- Indexes for table `kontak`
 --
 ALTER TABLE `kontak`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `iduser` (`iduser`),
+  ADD KEY `iduser_2` (`iduser`);
 
 --
 -- Indexes for table `tarif`
@@ -166,11 +163,17 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `kontak`
 --
 ALTER TABLE `kontak`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `kontak`
+--
+ALTER TABLE `kontak`
+  ADD CONSTRAINT `kontak_ibfk_1` FOREIGN KEY (`iduser`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `transaksi`
