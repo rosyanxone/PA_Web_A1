@@ -56,7 +56,8 @@ form.formTarif {
     
 }
 
-button {
+button,
+.btn-lanjutkan {
     border-radius: 5em;
     color: #fff;
     background: linear-gradient(to right, #1363DF, #47B5FF);
