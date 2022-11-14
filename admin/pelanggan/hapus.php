@@ -9,7 +9,7 @@
         header("Location: ../../index.php");
         exit;
     } else {
-		include "../../php/connection.php";
+        require("../../php/connection.php");
 	
 		$id = $_GET["id"];
 		$sql = "DELETE FROM user WHERE id = '$id'";
