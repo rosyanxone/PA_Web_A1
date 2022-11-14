@@ -102,8 +102,8 @@
                 <h2>ABOUT US</h2>
             </div>
             <div class="about-content">
-                <p class="about-item-left"><b>Pixel</b> is a privately held Samarinda online video game rental subscription service that specializes in providing games for Sony and Microsoft systems starting from the sixth generation onwards. The business model of <b>Pixel</b> is similar to the DVD-by-mail subscription service Netflix and Blockbuster online. <b>Pixel</b> sends games to subscribers for a monthly fee.</p>
-                <p class="about-item-right">Over 8,000 titles are available. In May 2018, Electronic Arts announced that they acquired cloud gaming technology assets and personnel from <b>Pixel</b> (including its Chicago outpost). <b>Pixel</b> is currently owned by the same ownership group as Alliance Entertainment and is operated as a stand-alone company.</p>
+                <p class="about-item-left"><b>Listrik Biru</b> Pulsa listrik di rumah mau habis tapi belum beli token listrik karena males keluar? Tenang, kini Anda bisa beli token listrik prabayar dan tagihan listrik pascabayar dengan cepat dan mudah bisa di mana saja dan kapan saja hanya dengan satu aplikasi,</p>
+                <p class="about-item-right">Pulsa listrik di rumah sudah mau habis tapi malas keluar untuk beli token listrik prabayar? Mau beli token listrik prabayar dengan cepat dan mudah? Yuk beli token listrik prabayar murah dengan proses yang aman dan cepat hanya di Listrik Biru!</p>
             </div>
         </div>
 
